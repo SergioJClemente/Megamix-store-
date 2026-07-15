@@ -6,12 +6,10 @@
     <title>SJCLEMENTE ONLINE - Plataforma Completa</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        / ============================================
-                   CSS COMPLETO - TODOS OS ESTILOS
-                   ============================================ /
-
-        / ===== RESET E VARIÁVEIS ===== /
-         {
+        /* ============================================
+                   CSS COMPLETO
+                   ============================================ */
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -29,11 +27,9 @@
             --success: #28a745;
             --warning: #ffc107;
             --danger: #dc3545;
-            --whatsapp: 930223136
+            --whatsapp: #25D366;
             --instagram: #E4405F;
-            --facebook: sergio j. clemente;
-            --tiktok: sergiojclemente1;
-            --youtube: #ff0000;
+            --facebook: #1877f2;
             --shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.15);
             --radius: 12px;
@@ -41,16 +37,11 @@
             --transition: all 0.3s ease;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            background: f0f2f5;
+            background: #f0f2f5;
             padding: 10px;
         }
 
-        /===== SCROLLBAR PERSONALIZADA ===== /
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -62,11 +53,7 @@
             background: var(--primary);
             border-radius: 10px;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-dark);
-        }
 
-        / ===== CONTAINER PRINCIPAL ===== /
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -76,9 +63,7 @@
             box-shadow: var(--shadow);
         }
 
-        /============================================
-                   MENU PRINCIPAL
-                   ============================================ /
+        /* ===== MENU PRINCIPAL ===== */
         .main-menu {
             background: var(--secondary);
             border-radius: var(--radius);
@@ -125,8 +110,40 @@
             background: rgba(233, 69, 96, 0.3);
         }
 
-        .main-menu .menu-links a i {
-            font-size: 1rem;
+        .top-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .top-actions a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px;
+            border-radius: 50%;
+        }
+
+        .top-actions a:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .top-actions .badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            padding: 2px 7px;
+            font-size: 0.65rem;
+            font-weight: bold;
+            min-width: 18px;
+            text-align: center;
         }
 
         .menu-toggle {
@@ -139,9 +156,7 @@
             padding: 10px;
         }
 
-        / ============================================
-                   SEMI-MENU (Submenu)
-                   ============================================ /
+        /* ===== SEMI-MENU ===== */
         .semi-menu {
             display: flex;
             gap: 8px;
@@ -176,64 +191,7 @@
             font-size: 0.7rem;
         }
 
-        /============================================
-                   TOPO COM AÇÕES DO USUÁRIO
-                   ============================================ /
-        .top-actions {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .top-actions .user-info {
-            color: white;
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .top-actions .user-info img {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--primary);
-        }
-
-        .top-actions a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            position: relative;
-            padding: 8px;
-            border-radius: 50%;
-        }
-
-        .top-actions a:hover {
-            color: white;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .top-actions .badge {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            padding: 2px 7px;
-            font-size: 0.65rem;
-            font-weight: bold;
-            min-width: 18px;
-            text-align: center;
-        }
-
-        / ============================================
-                   BARRA DE PESQUISA
-                   ============================================ /
+        /* ===== BARRA DE PESQUISA ===== */
         .search-section {
             margin-bottom: 25px;
         }
@@ -247,7 +205,7 @@
         .search-box input {
             flex: 1;
             padding: 14px 22px;
-            border: 2px solid ddd;
+            border: 2px solid #ddd;
             border-radius: 30px 0 0 30px;
             font-size: 1rem;
             outline: none;
@@ -272,37 +230,9 @@
 
         .search-box button:hover {
             background: var(--primary-dark);
-            border-color: var(--primary-dark);
         }
 
-        .search-filters {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 12px;
-        }
-
-        .search-filters button {
-            padding: 6px 16px;
-            border: 1px solid ddd;
-            border-radius: 20px;
-            background: white;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 0.8rem;
-        }
-
-        .search-filters button:hover,
-        .search-filters button.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        / ============================================
-                   FILTROS DE PRODUTOS
-                   ============================================ /
+        /* ===== FILTROS ===== */
         .filters-section {
             display: flex;
             gap: 10px;
@@ -313,34 +243,24 @@
             border-radius: var(--radius);
         }
 
-        .filters-section .filter-group {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .filters-section .filter-group label {
+        .filters-section button {
+            padding: 8px 18px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+            transition: var(--transition);
             font-size: 0.85rem;
-            color: var(--gray);
-            font-weight: 600;
         }
 
-        .filters-section select,
-        .filters-section input[type="range"] {
-            padding: 6px 12px;
-            border: 1px solid ddd;
-            border-radius: 8px;
-            outline: none;
-        }
-
-        .filters-section select:focus {
+        .filters-section button:hover,
+        .filters-section button.active {
+            background: var(--primary);
+            color: white;
             border-color: var(--primary);
         }
 
-        / ============================================
-                   GRADE DE PRODUTOS
-                   ============================================ /
+        /* ===== PRODUTOS ===== */
         .produtos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -352,7 +272,7 @@
             background: white;
             border-radius: var(--radius);
             padding: 18px;
-            border: 1px solid eee;
+            border: 1px solid #eee;
             transition: var(--transition);
             position: relative;
         }
@@ -375,16 +295,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .produto-card .produto-img .placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: adb5bd;
         }
 
         .produto-badge {
@@ -423,36 +333,31 @@
         .produto-actions-top button:hover {
             background: var(--primary);
             color: white;
-            transform: scale(1.1);
-        }
-
-        .produto-actions-top .favorito.ativo {
-            color: var(--primary);
         }
 
         .produto-info {
             margin-top: 12px;
         }
 
-        .produto-info .produto-nome {
+        .produto-info h3 {
             font-size: 1.1rem;
             color: var(--secondary);
         }
 
-        .produto-info .produto-descricao {
+        .produto-info .descricao {
             font-size: 0.85rem;
             color: var(--gray);
             margin: 5px 0;
         }
 
-        .produto-info .produto-preco {
+        .produto-info .preco {
             font-size: 1.6rem;
             font-weight: bold;
             color: var(--primary);
             margin: 8px 0;
         }
 
-        .produto-info .produto-preco-antigo {
+        .produto-info .preco-antigo {
             font-size: 0.9rem;
             color: var(--gray);
             text-decoration: line-through;
@@ -460,37 +365,17 @@
             font-weight: normal;
         }
 
-        .produto-info .produto-rating {
+        .produto-info .rating {
             color: var(--warning);
             font-size: 0.9rem;
             margin: 5px 0;
         }
 
-        .produto-info .produto-rating span {
+        .produto-info .rating span {
             color: var(--gray);
             font-size: 0.8rem;
         }
 
-        .produto-info .produto-vendedor {
-            font-size: 0.8rem;
-            color: var(--gray);
-            margin: 5px 0;
-        }
-
-        .produto-info .produto-vendedor i {
-            color: var(--primary);
-        }
-
-        .produto-info .produto-estoque {
-            font-size: 0.8rem;
-            color: var(--success);
-            margin: 5px 0;
-        }
-        .produto-info .produto-estoque.esgotado {
-            color: var(--danger);
-        }
-
-        / ===== BOTÕES DO PRODUTO ===== /
         .btn-group {
             display: flex;
             gap: 6px;
@@ -538,7 +423,7 @@
             color: white;
         }
         .btn-whatsapp:hover {
-            background: 1da851;
+            background: #1da851;
         }
 
         .btn-instagram {
@@ -546,34 +431,16 @@
             color: white;
         }
         .btn-instagram:hover {
-            background: c13552;
+            background: #c13552;
         }
 
-        .btn-facebook {
-            background: var(--facebook);
-            color: white;
-        }
-        .btn-facebook:hover {
-            background: 1565c0;
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--secondary);
-            border: 2px solid ddd;
-        }
-        .btn-outline:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        / ===== INTERAÇÕES SOCIAIS ===== /
+        /* ===== INTERAÇÕES SOCIAIS ===== */
         .produto-social {
             display: flex;
             gap: 15px;
             margin-top: 12px;
             padding-top: 12px;
-            border-top: 1px solid eee;
+            border-top: 1px solid #eee;
             flex-wrap: wrap;
         }
 
@@ -601,35 +468,19 @@
             color: var(--gray);
         }
 
-        .produto-social button.curtido {
-            color: var(--primary);
-        }
-        .produto-social button.curtido i {
-            font-weight: 900;
-        }
-
-        / ============================================
-                   SEÇÃO DE DOWNLOADS
-                   ============================================ /
+        /* ===== DOWNLOADS ===== */
         .download-section {
             margin: 40px 0 30px;
             padding: 30px;
-            background: linear-gradient(135deg, f8f9fa, e9ecef);
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             border-radius: var(--radius);
         }
 
-        .download-section .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
+        .download-section h2 {
+            color: var(--secondary);
             margin-bottom: 20px;
         }
-
-        .download-section .section-header h2 {
-            color: var(--secondary);
-        }
-        .download-section .section-header h2 i {
+        .download-section h2 i {
             color: var(--primary);
         }
 
@@ -684,12 +535,9 @@
 
         .download-item .btn-download:hover {
             background: var(--primary-dark);
-            transform: scale(1.05);
         }
 
-        /* ============================================
-                   SEÇÃO DE COMENTÁRIOS / FEEDBACK
-                   ============================================ /
+        /* ===== FEEDBACK / COMENTÁRIOS ===== */
         .feedback-section {
             margin: 30px 0;
             padding: 25px;
@@ -702,7 +550,6 @@
             color: var(--secondary);
             margin-bottom: 15px;
         }
-
         .feedback-section h3 i {
             color: var(--primary);
         }
@@ -713,13 +560,6 @@
             border-radius: var(--radius-sm);
             margin-bottom: 12px;
             border-left: 3px solid var(--primary);
-        }
-
-        .feedback-item .feedback-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
         }
 
         .feedback-item .feedback-user {
@@ -738,25 +578,6 @@
         .feedback-item .feedback-text {
             margin-top: 8px;
             color: #333;
-        }
-
-        .feedback-item .feedback-actions {
-            margin-top: 8px;
-            display: flex;
-            gap: 15px;
-        }
-
-        .feedback-item .feedback-actions button {
-            background: none;
-            border: none;
-            color: var(--gray);
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .feedback-item .feedback-actions button:hover {
-            color: var(--primary);
         }
 
         .feedback-form {
@@ -801,15 +622,13 @@
             background: var(--primary-dark);
         }
 
-        / ============================================
-                   SEÇÃO DE MENSAGENS (Chat)
-                   ============================================ /
+        /* ===== CHAT ===== */
         .chat-section {
             margin: 30px 0;
             padding: 25px;
             background: white;
             border-radius: var(--radius);
-            border: 1px solid eee;
+            border: 1px solid #eee;
         }
 
         .chat-section h3 {
@@ -824,6 +643,8 @@
             background: var(--light);
             border-radius: var(--radius-sm);
             margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
         }
 
         .chat-message {
@@ -845,17 +666,6 @@
             margin-left: auto;
         }
 
-        .chat-message .msg-user {
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        .chat-message .msg-user i {
-            font-size: 0.7rem;
-        }
-
-        .chat-message .msg-text {
-            margin-top: 3px;
-        }
         .chat-message .msg-time {
             font-size: 0.65rem;
             opacity: 0.7;
@@ -895,9 +705,7 @@
             background: var(--primary-dark);
         }
 
-        / ============================================
-                   RODAPÉ COMPLETO
-                   ============================================ /
+        /* ===== RODAPÉ ===== */
         footer {
             margin-top: 40px;
             padding: 35px 0 15px;
@@ -914,12 +722,9 @@
         .footer-grid h4 {
             color: var(--secondary);
             margin-bottom: 12px;
-            font-size: 1.05rem;
         }
-
         .footer-grid h4 i {
             color: var(--primary);
-            margin-right: 6px;
         }
 
         .footer-grid ul {
@@ -943,11 +748,6 @@
         .footer-grid ul li a:hover {
             color: var(--primary);
             padding-left: 5px;
-        }
-
-        .footer-grid ul li .payment-icon {
-            font-size: 1.3rem;
-            margin-right: 5px;
         }
 
         .footer-social {
@@ -975,7 +775,6 @@
             background: var(--primary);
             color: white;
             transform: translateY(-3px);
-            box-shadow: var(--shadow);
         }
 
         .footer-bottom {
@@ -986,28 +785,7 @@
             font-size: 0.85rem;
         }
 
-        .footer-bottom .footer-links {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 10px;
-        }
-
-        .footer-bottom .footer-links a {
-            color: var(--gray);
-            text-decoration: none;
-            font-size: 0.8rem;
-            transition: var(--transition);
-        }
-
-        .footer-bottom .footer-links a:hover {
-            color: var(--primary);
-        }
-
-        / ============================================
-                   MODAL
-                   ============================================ /
+        /* ===== MODAL ===== */
         .modal {
             display: none;
             position: fixed;
@@ -1020,22 +798,10 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            animation: fadeIn 0.3s ease;
         }
 
         .modal.active {
             display: flex;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
         }
 
         .modal-content {
@@ -1070,14 +836,11 @@
             color: var(--secondary);
             margin-bottom: 20px;
         }
-
         .modal-content h2 i {
             color: var(--primary);
         }
 
-        / ============================================
-                   CARRINHO
-                   ============================================ /
+        /* ===== CARRINHO ===== */
         .carrinho-item {
             display: flex;
             justify-content: space-between;
@@ -1101,33 +864,6 @@
             font-weight: bold;
         }
 
-        .carrinho-item .item-qtd {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .carrinho-item .item-qtd button {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            border: 1px solid ddd;
-            background: white;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .carrinho-item .item-qtd button:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .carrinho-item .item-qtd span {
-            min-width: 25px;
-            text-align: center;
-        }
-
         .carrinho-item .item-remove {
             color: var(--danger);
             background: none;
@@ -1148,45 +884,10 @@
             text-align: right;
             margin-top: 15px;
             padding-top: 15px;
-            border-top: 2px solid eee;
+            border-top: 2px solid #eee;
         }
 
-        .carrinho-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-
-        .carrinho-actions button {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .carrinho-actions .btn-finalizar {
-            background: var(--success);
-            color: white;
-        }
-        .carrinho-actions .btn-finalizar:hover {
-            background: 218838;
-        }
-
-        .carrinho-actions .btn-limpar {
-            background: var(--danger);
-            color: white;
-        }
-        .carrinho-actions .btn-limpar:hover {
-            background: #c82333;
-        }
-
-        / ============================================
-                   FORMULÁRIOS (Login, Cadastro, etc)
-                   ============================================ /
+        /* ===== FORMULÁRIOS ===== */
         .form-group {
             margin-bottom: 15px;
         }
@@ -1215,12 +916,6 @@
         .form-group select:focus,
         .form-group textarea:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 10px rgba(233, 69, 96, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 80px;
         }
 
         .form-row {
@@ -1253,14 +948,6 @@
             background: var(--primary-dark);
         }
 
-        .form-actions .btn-secondary {
-            background: var(--gray-light);
-            color: var(--secondary);
-        }
-        .form-actions .btn-secondary:hover {
-            background: d5d8dd;
-        }
-
         .form-actions .btn-success {
             background: var(--success);
             color: white;
@@ -1269,97 +956,924 @@
             background: #218838;
         }
 
-        /============================================
-                   PERFIL DO USUÁRIO
-                   ============================================ */
-        .profile-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 20px;
-            background: var(--light);
-            border-radius: var(--radius);
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+        /* ===== TOAST ===== */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            display: none;
+            z-index: 10000;
+            animation: slideUp 0.3s ease;
+            max-width: 350px;
         }
 
-        .profile-header .profile-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: var(--gray-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: var(--gray);
-            border: 3px solid var(--primary);
-            overflow: hidden;
+        .toast.show {
+            display: block;
         }
 
-        .profile-header .profile-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        @keyframes slideUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
-        .profile-header .profile-info h3 {
-            color: var(--secondary);
+        .toast.success {
+            background: var(--success);
         }
-        .profile-header .profile-info p {
-            color: var(--gray);
-        }
-
-        .profile-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
+        .toast.error {
+            background: var(--danger);
         }
 
-        .profile-stats .stat-card {
-            background: var(--light);
-            padding: 15px;
-            border-radius: var(--radius-sm);
-            text-align: center;
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .main-menu .menu-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                padding: 10px 0;
+            }
+            .main-menu .menu-links.open {
+                display: flex;
+            }
+            .main-menu .menu-links a {
+                padding: 10px 15px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .produtos-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
-        .profile-stats .stat-card .stat-number {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary);
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .btn-group button,
+            .btn-group a {
+                flex: 1 1 100%;
+            }
+            .search-box input {
+                font-size: 0.9rem;
+                padding: 12px 15px;
+            }
+            .search-box button {
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ============================================
+        MENU PRINCIPAL
+        ============================================ -->
+        <nav class="main-menu">
+            <a href="#" class="logo"><i class="fas fa-store"></i> SJCLEMENTE</a>
+
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="menu-links" id="mainMenu">
+                <a href="#" class="active"><i class="fas fa-home"></i> Início</a>
+                <a href="#" onclick="abrirModal('produtos')"><i class="fas fa-box"></i> Produtos</a>
+                <a href="#" onclick="abrirModal('categorias')"><i class="fas fa-tags"></i> Categorias</a>
+                <a href="#" onclick="abrirModal('ofertas')"><i class="fas fa-fire"></i> Ofertas</a>
+                <a href="#" onclick="abrirModal('downloads')"><i class="fas fa-download"></i> Downloads</a>
+                <a href="#" onclick="abrirModal('sobre')"><i class="fas fa-info-circle"></i> Sobre</a>
+            </div>
+
+            <div class="top-actions">
+                <a href="#" onclick="abrirModal('carrinho')" title="Carrinho">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cartCount">0</span>
+                </a>
+                <a href="#" onclick="abrirModal('favoritos')" title="Favoritos">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge" id="favCount">0</span>
+                </a>
+                <a href="#" onclick="abrirModal('mensagens')" title="Mensagens">
+                    <i class="fas fa-envelope"></i>
+                    <span class="badge" id="msgCount">3</span>
+                </a>
+                <a href="#" onclick="abrirModal('login')" title="Entrar">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </nav>
+
+        <!-- ============================================
+        SEMI-MENU
+        ============================================ -->
+        <div class="semi-menu">
+            <a href="#" onclick="abrirModal('perfil')"><i class="fas fa-user-circle"></i> Perfil</a>
+            <span class="separator">|</span>
+            <a href="#" onclick="abrirModal('configuracoes')"><i class="fas fa-cog"></i> Configurações</a>
+            <span class="separator">|</span>
+            <a href="#" onclick="abrirModal('afiliado')"><i class="fas fa-link"></i> Afiliado</a>
+            <span class="separator">|</span>
+            <a href="#" onclick="abrirModal('vendedor')"><i class="fas fa-store-alt"></i> Vendedor</a>
+            <span class="separator">|</span>
+            <a href="#" onclick="abrirModal('comprador')"><i class="fas fa-shopping-bag"></i> Comprador</a>
+            <span class="separator">|</span>
+            <a href="#" onclick="abrirModal('feedback')"><i class="fas fa-star"></i> Feedback</a>
+            <span class="separator">|</span>
+            <a href="#" onclick="abrirModal('ajuda')"><i class="fas fa-question-circle"></i> Ajuda</a>
+        </div>
+
+        <!-- ============================================
+        BARRA DE PESQUISA
+        ============================================ -->
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Buscar produtos, ebooks, PDFs, etc..." onkeyup="buscarProdutos()">
+                <button onclick="buscarProdutos()"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+
+        <!-- ============================================
+        FILTROS
+        ============================================ -->
+        <div class="filters-section">
+            <button class="active" onclick="filtrar('todos', this)">📦 Todos</button>
+            <button onclick="filtrar('roupa', this)">👕 Roupas</button>
+            <button onclick="filtrar('ebook', this)">📚 Ebooks</button>
+            <button onclick="filtrar('acessorio', this)">💎 Acessórios</button>
+            <button onclick="filtrar('promocao', this)">🔥 Promoções</button>
+            <button onclick="filtrar('digital', this)">💻 Digital</button>
+        </div>
+
+        <!-- ============================================
+        GRADE DE PRODUTOS
+        ============================================ -->
+        <div class="produtos-grid" id="produtosGrid">
+
+            <!-- PRODUTO 1 -->
+            <div class="produto-card" data-categoria="roupa" data-nome="camiseta preta">
+                <div class="produto-img">
+                    <img src="https://via.placeholder.com/400x220/333/fff?text=CAMISETA+PRETA" alt="Camiseta Preta">
+                    <span class="produto-badge">⭐ Mais Vendido</span>
+                    <div class="produto-actions-top">
+                        <button onclick="favoritar(this)" title="Favoritar"><i class="far fa-heart"></i></button>
+                        <button onclick="compartilhar('Camiseta Preta')" title="Compartilhar"><i class="fas fa-share-alt"></i></button>
+                    </div>
+                </div>
+                <div class="produto-info">
+                    <h3>Camiseta Preta</h3>
+                    <p class="descricao">100% algodão, confortável e estilosa</p>
+                    <div class="rating">★★★★☆ <span>(24 avaliações)</span></div>
+                    <div class="preco">Kz 2.500 <span class="preco-antigo">Kz 3.200</span></div>
+                    <div class="btn-group">
+                        <button class="btn-comprar" onclick="comprar('Camiseta Preta', 2500)"><i class="fas fa-bolt"></i> Comprar</button>
+                        <button class="btn-carrinho" onclick="adicionarCarrinho('Camiseta Preta', 2500)"><i class="fas fa-cart-plus"></i></button>
+                        <a href="https://wa.me/244900000000?text=Quero%20comprar%20a%20Camiseta%20Preta" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://instagram.com/seuperfil" target="_blank" class="btn-instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="produto-social">
+                        <button onclick="curtir(this)"><i class="far fa-thumbs-up"></i> Curtir <span class="contador">12</span></button>
+                        <button onclick="comentar(this)"><i class="far fa-comment"></i> Comentar <span class="contador">5</span></button>
+                        <button onclick="compartilhar('Camiseta Preta')"><i class="fas fa-share-alt"></i> Partilhar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUTO 2 -->
+            <div class="produto-card" data-categoria="ebook" data-nome="ebook python">
+                <div class="produto-img">
+                    <img src="https://via.placeholder.com/400x220/1a1a2e/fff?text=EBOOK+PYTHON" alt="Ebook Python">
+                    <span class="produto-badge">📚 Digital</span>
+                    <div class="produto-actions-top">
+                        <button onclick="favoritar(this)"><i class="far fa-heart"></i></button>
+                        <button onclick="compartilhar('Ebook Python')"><i class="fas fa-share-alt"></i></button>
+                    </div>
+                </div>
+                <div class="produto-info">
+                    <h3>Ebook Python Completo</h3>
+                    <p class="descricao">Aprenda do zero ao avançado em PDF</p>
+                    <div class="rating">★★★★★ <span>(18 avaliações)</span></div>
+                    <div class="preco">Kz 3.000 <span class="preco-antigo">Kz 5.000</span></div>
+                    <div class="btn-group">
+                        <button class="btn-comprar" onclick="comprar('Ebook Python', 3000)"><i class="fas fa-bolt"></i> Comprar</button>
+                        <button class="btn-carrinho" onclick="adicionarCarrinho('Ebook Python', 3000)"><i class="fas fa-cart-plus"></i></button>
+                        <a href="https://wa.me/244900000000?text=Quero%20comprar%20o%20Ebook%20Python" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://instagram.com/seuperfil" target="_blank" class="btn-instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="produto-social">
+                        <button onclick="curtir(this)"><i class="far fa-thumbs-up"></i> Curtir <span class="contador">8</span></button>
+                        <button onclick="comentar(this)"><i class="far fa-comment"></i> Comentar <span class="contador">3</span></button>
+                        <button onclick="compartilhar('Ebook Python')"><i class="fas fa-share-alt"></i> Partilhar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUTO 3 -->
+            <div class="produto-card" data-categoria="acessorio" data-nome="relogio digital">
+                <div class="produto-img">
+                    <img src="https://via.placeholder.com/400x220/555/fff?text=REL%C3%93GIO" alt="Relógio">
+                    <span class="produto-badge">⌚ Oferta</span>
+                    <div class="produto-actions-top">
+                        <button onclick="favoritar(this)"><i class="far fa-heart"></i></button>
+                        <button onclick="compartilhar('Relógio Digital')"><i class="fas fa-share-alt"></i></button>
+                    </div>
+                </div>
+                <div class="produto-info">
+                    <h3>Relógio Digital Esportivo</h3>
+                    <p class="descricao">Impermeável, com cronômetro e luz</p>
+                    <div class="rating">★★★☆☆ <span>(9 avaliações)</span></div>
+                    <div class="preco">Kz 4.500 <span class="preco-antigo">Kz 6.000</span></div>
+                    <div class="btn-group">
+                        <button class="btn-comprar" onclick="comprar('Relógio Digital', 4500)"><i class="fas fa-bolt"></i> Comprar</button>
+                        <button class="btn-carrinho" onclick="adicionarCarrinho('Relógio Digital', 4500)"><i class="fas fa-cart-plus"></i></button>
+                        <a href="https://wa.me/244900000000?text=Quero%20comprar%20o%20Rel%C3%B3gio%20Digital" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://instagram.com/seuperfil" target="_blank" class="btn-instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="produto-social">
+                        <button onclick="curtir(this)"><i class="far fa-thumbs-up"></i> Curtir <span class="contador">6</span></button>
+                        <button onclick="comentar(this)"><i class="far fa-comment"></i> Comentar <span class="contador">2</span></button>
+                        <button onclick="compartilhar('Relógio Digital')"><i class="fas fa-share-alt"></i> Partilhar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ============================================
+        SEÇÃO DE DOWNLOADS
+        ============================================ -->
+        <div class="download-section">
+            <h2><i class="fas fa-download"></i> Biblioteca Digital - Downloads</h2>
+            <div class="download-grid">
+                <div class="download-item">
+                    <i class="fas fa-file-pdf"></i>
+                    <h4>Guia de Programação</h4>
+                    <p>PDF • 2.5 MB</p>
+                    <button class="btn-download" onclick="baixar('Guia Programação')"><i class="fas fa-download"></i> Baixar</button>
+                </div>
+                <div class="download-item">
+                    <i class="fas fa-file-alt"></i>
+                    <h4>Manual de Negócios</h4>
+                    <p>DOC • 1.8 MB</p>
+                    <button class="btn-download" onclick="baixar('Manual Negócios')"><i class="fas fa-download"></i> Baixar</button>
+                </div>
+                <div class="download-item">
+                    <i class="fas fa-file-image"></i>
+                    <h4>Wallpapers HD</h4>
+                    <p>ZIP • 15 MB</p>
+                    <button class="btn-download" onclick="baixar('Wallpapers HD')"><i class="fas fa-download"></i> Baixar</button>
+                </div>
+                <div class="download-item">
+                    <i class="fas fa-file-audio"></i>
+                    <h4>Podcast Motivacional</h4>
+                    <p>MP3 • 8 MB</p>
+                    <button class="btn-download" onclick="baixar('Podcast')"><i class="fas fa-download"></i> Baixar</button>
+                </div>
+                <div class="download-item">
+                    <i class="fas fa-file-video"></i>
+                    <h4>Curso em Vídeo</h4>
+                    <p>MP4 • 120 MB</p>
+                    <button class="btn-download" onclick="baixar('Curso Vídeo')"><i class="fas fa-download"></i> Baixar</button>
+                </div>
+                <div class="download-item">
+                    <i class="fas fa-file-archive"></i>
+                    <h4>Template HTML</h4>
+                    <p>ZIP • 3 MB</p>
+                    <button class="btn-download" onclick="baixar('Template HTML')"><i class="fas fa-download"></i> Baixar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+        FEEDBACK / COMENTÁRIOS
+        ============================================ -->
+        <div class="feedback-section">
+            <h3><i class="fas fa-comments"></i> Feedback e Comentários</h3>
+            <div id="feedbackList">
+                <div class="feedback-item">
+                    <div class="feedback-user"><i class="fas fa-user-circle"></i> João Silva</div>
+                    <div class="feedback-data">15/07/2026 • 14:30</div>
+                    <div class="feedback-text">Ótimo produto! A entrega foi rápida e a qualidade é excelente. Recomendo!</div>
+                </div>
+                <div class="feedback-item">
+                    <div class="feedback-user"><i class="fas fa-user-circle"></i> Maria Santos</div>
+                    <div class="feedback-data">14/07/2026 • 10:15</div>
+                    <div class="feedback-text">O ebook é muito completo, aprendi muito. Valeu cada kz!</div>
+                </div>
+            </div>
+            <div class="feedback-form">
+                <input type="text" id="feedbackNome" placeholder="Seu nome" style="flex:0.3;">
+                <textarea id="feedbackTexto" placeholder="Deixe seu comentário..."></textarea>
+                <button onclick="enviarFeedback()"><i class="fas fa-paper-plane"></i> Enviar</button>
+            </div>
+        </div>
+
+        <!-- ============================================
+        CHAT (Mensagens)
+        ============================================ -->
+        <div class="chat-section">
+            <h3><i class="fas fa-comment-dots"></i> Mensagens (Chat)</h3>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message received">
+                    <div class="msg-user"><i class="fas fa-user"></i> Vendedor: </div>
+                    <div class="msg-text">Olá! Como posso ajudar?</div>
+                    <div class="msg-time">14:30</div>
+                </div>
+                <div class="chat-message sent">
+                    <div class="msg-user">Você: </div>
+                    <div class="msg-text">Boa tarde! O produto está disponível?</div>
+                    <div class="msg-time">14:32</div>
+                </div>
+                <div class="chat-message received">
+                    <div class="msg-user"><i class="fas fa-user"></i> Vendedor: </div>
+                    <div class="msg-text">Sim! Temos em estoque. Deseja comprar?</div>
+                    <div class="msg-time">14:33</div>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Digite sua mensagem..." onkeypress="if(event.key==='Enter') enviarMensagem()">
+                <button onclick="enviarMensagem()"><i class="fas fa-paper-plane"></i> Enviar</button>
+            </div>
+        </div>
+
+        <!-- ============================================
+        RODAPÉ
+        ============================================ -->
+        <footer>
+            <div class="footer-grid">
+                <div>
+                    <h4><i class="fas fa-store"></i> SJCLEMENTE</h4>
+                    <p style="color:var(--gray);font-size:0.9rem;">Produtos diversos para você!<br>Angola 🇦🇴</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="#" onclick="abrirModal('ajuda')"><i class="fas fa-question-circle"></i> Ajuda</a></li>
+                        <li><a href="#" onclick="abrirModal('politica')"><i class="fas fa-shield-alt"></i> Política de Privacidade</a></li>
+                        <li><a href="#" onclick="abrirModal('termos')"><i class="fas fa-file-contract"></i> Termos de Uso</a></li>
+                        <li><a href="#" onclick="abrirModal('pagamentos')"><i class="fas fa-credit-card"></i> Métodos de Pagamento</a></li>
+                        <li><a href="#" onclick="abrirModal('saque')"><i class="fas fa-wallet"></i> Meu Saque</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4><i class="fas fa-address-book"></i> Contato</h4>
+                    <ul>
+                        <li><a href="https://wa.me/244900000000" target="_blank"><i class="fab fa-whatsapp" style="color:var(--whatsapp);"></i> WhatsApp</a></li>
+                        <li><a href="https://instagram.com/seuperfil" target="_blank"><i class="fab fa-instagram" style="color:var(--instagram);"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> contato@sjclemente.com</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +244 900 000 000</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4><i class="fas fa-credit-card"></i> Pagamentos</h4>
+                    <ul>
+                        <li><i class="fas fa-credit-card"></i> Cartão de Crédito</li>
+                        <li><i class="fas fa-mobile-alt"></i> Emola / M-Pesa</li>
+                        <li><i class="fas fa-university"></i> Transferência Bancária</li>
+                        <li><i class="fas fa-hand-holding-usd"></i> Pagamento na Entrega</li>
+                        <li><i class="fas fa-bitcoin"></i> Criptomoedas</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SJCLEMENTE ONLINE - Todos os direitos reservados</p>
+                <p style="font-size:0.75rem;color:#aaa;">Feito com <i class="fas fa-heart" style="color:var(--primary);"></i> em Angola</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- ============================================
+    MODAL
+    ============================================ -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharModal()">&times;</button>
+            <div id="modalBody">
+                <!-- Conteúdo dinâmico via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+    TOAST (Notificações)
+    ============================================ -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ============================================
+    JAVASCRIPT COMPLETO
+    ============================================ -->
+    <script>
+        // ===== VARIÁVEIS GLOBAIS =====
+        let carrinho = [];
+        let favoritos = [];
+        let contadorCurtidas = {};
+
+        // ===== TOGGLE MENU (Mobile) =====
+        function toggleMenu() {
+            document.getElementById('mainMenu').classList.toggle('open');
         }
 
-        .profile-stats .stat-card .stat-label {
-            font-size: 0.8rem;
-            color: var(--gray);
+        // ===== BUSCAR PRODUTOS =====
+        function buscarProdutos() {
+            const input = document.getElementById('searchInput');
+            const filtro = input.value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.produto-card');
+            let encontrou = false;
+
+            cards.forEach(card => {
+                const nome = card.getAttribute('data-nome').toLowerCase();
+                if (filtro === '' || nome.includes(filtro)) {
+                    card.style.display = 'block';
+                    encontrou = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (filtro !== '' && !encontrou) {
+                mostrarToast('Nenhum produto encontrado para: "' + filtro + '"', 'error');
+            }
         }
 
-        /* ============================================
-                   GESTÃO DE PRODUTOS (VENDEDOR)
-                   ============================================ */
-        .product-management {
-            margin: 20px 0;
+        // ===== FILTRAR PRODUTOS =====
+        function filtrar(categoria, btn) {
+            const cards = document.querySelectorAll('.produto-card');
+            document.querySelectorAll('.filters-section button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            cards.forEach(card => {
+                if (categoria === 'todos' || card.getAttribute('data-categoria') === categoria) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         }
 
-        .product-management .product-list {
-            display: grid;
-            gap: 10px;
+        // ===== ADICIONAR AO CARRINHO =====
+        function adicionarCarrinho(nome, preco) {
+            const item = carrinho.find(p => p.nome === nome);
+            if (item) {
+                item.quantidade++;
+            } else {
+                carrinho.push({ nome, preco, quantidade: 1 });
+            }
+            atualizarCarrinho();
+            mostrarToast(`${nome} adicionado ao carrinho! 🛒`, 'success');
         }
 
-        .product-management .product-list .product-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 15px;
-            background: var(--light);
-            border-radius: var(--radius-sm);
-            border: 1px solid #eee;
+        function removerDoCarrinho(nome) {
+            carrinho = carrinho.filter(p => p.nome !== nome);
+            atualizarCarrinho();
+            mostrarToast('Item removido do carrinho');
+            verCarrinho();
         }
 
-        .product-management .product-list .product-item .product-actions {
-            display: flex;
-            gap: 8px;
+        function atualizarCarrinho() {
+            const total = carrinho.reduce((sum, p) => sum + p.quantidade, 0);
+            document.getElementById('cartCount').textContent = total;
         }
 
-        .product
+        function verCarrinho() {
+            let html = `<h2><i class="fas fa-shopping-cart"></i> Meu Carrinho</h2>`;
+            if (carrinho.length === 0) {
+                html += `<p style="text-align:center;padding:30px;"><i class="fas fa-shopping-cart" style="font-size:3rem;color:#ddd;display:block;"></i>Seu carrinho está vazio</p>`;
+            } else {
+                let total = 0;
+                carrinho.forEach((item, index) => {
+                    total += item.preco * item.quantidade;
+                    html += `
+                        <div class="carrinho-item">
+                            <div class="item-info">
+                                <span class="item-nome">${item.nome}</span>
+                                <span class="item-preco">Kz ${item.preco}</span>
+                            </div>
+                            <div class="item-qtd">
+                                <button onclick="alterarQtd(${index}, -1)">-</button>
+                                <span>${item.quantidade}</span>
+                                <button onclick="alterarQtd(${index}, 1)">+</button>
+                            </div>
+                            <button class="item-remove" onclick="removerDoCarrinho('${item.nome}')"><i class="fas fa-trash"></i></button>
+                        </div>
+                    `;
+                });
+                html += `<div class="carrinho-total">Total: Kz ${total}</div>`;
+                html += `
+                    <div class="carrinho-actions">
+                        <button class="btn-finalizar" onclick="finalizarCompra()"><i class="fas fa-check"></i> Finalizar Compra</button>
+                        <button class="btn-limpar" onclick="limparCarrinho()"><i class="fas fa-trash"></i> Limpar Carrinho</button>
+                    </div>
+                `;
+            }
+            document.getElementById('modalBody').innerHTML = html;
+            abrirModal();
+        }
+
+        function alterarQtd(index, delta) {
+            if (carrinho[index].quantidade + delta <= 0) {
+                carrinho.splice(index, 1);
+            } else {
+                carrinho[index].quantidade += delta;
+            }
+            atualizarCarrinho();
+            verCarrinho();
+        }
+
+        function limparCarrinho() {
+            carrinho = [];
+            atualizarCarrinho();
+            mostrarToast('Carrinho limpo!');
+            verCarrinho();
+        }
+
+        function finalizarCompra() {
+            const total = carrinho.reduce((sum, p) => sum + p.preco * p.quantidade, 0);
+            mostrarToast(`Compra finalizada! Total: Kz ${total} ✅`, 'success');
+            carrinho = [];
+            atualizarCarrinho();
+            fecharModal();
+        }
+
+        // ===== COMPRAR DIRETO =====
+        function comprar(nome, preco) {
+            mostrarToast(`Redirecionando para compra de ${nome}...`, 'success');
+            // Simula redirecionamento
+            setTimeout(() => {
+                window.open('https://wa.me/244900000000?text=Quero%20comprar%20' + encodeURIComponent(nome), '_blank');
+            }, 1000);
+        }
+
+        // ===== FAVORITOS =====
+        function favoritar(btn) {
+            const icon = btn.querySelector('i');
+            const card = btn.closest('.produto-card');
+            const nome = card.getAttribute('data-nome');
+
+            if (icon.classList.contains('far')) {
+                icon.classList.replace('far', 'fas');
+                icon.style.color = 'var(--primary)';
+                if (!favoritos.includes(nome)) {
+                    favoritos.push(nome);
+                }
+                mostrarToast(`${nome} adicionado aos favoritos ❤️`, 'success');
+            } else {
+                icon.classList.replace('fas', 'far');
+                icon.style.color = '';
+                favoritos = favoritos.filter(f => f !== nome);
+                mostrarToast(`${nome} removido dos favoritos`);
+            }
+            document.getElementById('favCount').textContent = favoritos.length;
+        }
+
+        function verFavoritos() {
+            let html = `<h2><i class="fas fa-heart"></i> Meus Favoritos</h2>`;
+            if (favoritos.length === 0) {
+                html += `<p style="text-align:center;padding:30px;"><i class="fas fa-heart" style="font-size:3rem;color:#ddd;display:block;"></i>Você ainda não tem favoritos</p>`;
+            } else {
+                html += `<ul style="list-style:none;">`;
+                favoritos.forEach(nome => {
+                    html += `<li style="padding:10px;border-bottom:1px solid #eee;"><i class="fas fa-heart" style="color:var(--primary);"></i> ${nome}</li>`;
+                });
+                html += `</ul>`;
+            }
+            document.getElementById('modalBody').innerHTML = html;
+            abrirModal();
+        }
+
+        // ===== CURTIR =====
+        function curtir(btn) {
+            const span = btn.querySelector('.contador');
+            let count = parseInt(span.textContent);
+            if (btn.classList.contains('curtido')) {
+                count--;
+                btn.classList.remove('curtido');
+            } else {
+                count++;
+                btn.classList.add('curtido');
+            }
+            span.textContent = count;
+        }
+
+        // ===== COMENTAR =====
+        function comentar(btn) {
+            const span = btn.querySelector('.contador');
+            const comentario = prompt('Digite seu comentário:');
+            if (comentario && comentario.trim() !== '') {
+                let count = parseInt(span.textContent) + 1;
+                span.textContent = count;
+                mostrarToast('Comentário adicionado! 💬', 'success');
+                // Adiciona ao feedback
+                const nome = prompt('Seu nome:') || 'Anônimo';
+                const feedbackList = document.getElementById('feedbackList');
+                const newFeedback = document.createElement('div');
+                newFeedback.className = 'feedback-item';
+                newFeedback.innerHTML = `
+                    <div class="feedback-user"><i class="fas fa-user-circle"></i> ${nome}</div>
+                    <div class="feedback-data">${new Date().toLocaleString()}</div>
+                    <div class="feedback-text">${comentario}</div>
+                `;
+                feedbackList.prepend(newFeedback);
+            }
+        }
+
+        // ===== COMPARTILHAR =====
+        function compartilhar(nome) {
+            const url = window.location.href;
+            const text = `Confira ${nome} na SJCLEMENTE ONLINE! 🛍️`;
+            if (navigator.share) {
+                navigator.share({
+                    title: 'SJCLEMENTE ONLINE',
+                    text: text,
+                    url: url
+                }).catch(() => {});
+            } else {
+                // Fallback - copia link
+                navigator.clipboard.writeText(url).then(() => {
+                    mostrarToast(`Link de ${nome} copiado! 📋`, 'success');
+                }).catch(() => {
+                    // WhatsApp como fallback
+                    window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
+                });
+            }
+        }
+
+        // ===== BAIXAR ARQUIVO =====
+        function baixar(nome) {
+            // Simula download
+            mostrarToast(`Iniciando download de "${nome}"... 📥`, 'success');
+            setTimeout(() => {
+                // Cria um link de download falso para demonstração
+                const link = document.createElement('a');
+                link.download = `${nome}.pdf`;
+                link.href = '#'; // Na prática, seria um link real
+                link.click();
+                mostrarToast(`Download de "${nome}" concluído! ✅`, 'success');
+            }, 1500);
+        }
+
+        // ===== ENVIAR FEEDBACK =====
+        function enviarFeedback() {
+            const nome = document.getElementById('feedbackNome').value.trim() || 'Anônimo';
+            const texto = document.getElementById('feedbackTexto').value.trim();
+            if (!texto) {
+                mostrarToast('Digite seu comentário!', 'error');
+                return;
+            }
+            const feedbackList = document.getElementById('feedbackList');
+            const newFeedback = document.createElement('div');
+            newFeedback.className = 'feedback-item';
+            newFeedback.innerHTML = `
+                <div class="feedback-user"><i class="fas fa-user-circle"></i> ${nome}</div>
+                <div class="feedback-data">${new Date().toLocaleString()}</div>
+                <div class="feedback-text">${texto}</div>
+            `;
+            feedbackList.prepend(newFeedback);
+            document.getElementById('feedbackTexto').value = '';
+            mostrarToast('Feedback enviado! Obrigado! 🙏', 'success');
+        }
+
+        // ===== MENSAGENS (CHAT) =====
+        function enviarMensagem() {
+            const input = document.getElementById('chatInput');
+            const texto = input.value.trim();
+            if (!texto) {
+                mostrarToast('Digite uma mensagem!', 'error');
+                return;
+            }
+            const chat = document.getElementById('chatMessages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'chat-message sent';
+            msgDiv.innerHTML = `
+                <div class="msg-user">Você: </div>
+                <div class="msg-text">${texto}</div>
+                <div class="msg-time">${new Date().toLocaleTimeString()}</div>
+            `;
+            chat.appendChild(msgDiv);
+            input.value = '';
+            chat.scrollTop = chat.scrollHeight;
+
+            // Simula resposta automática
+            setTimeout(() => {
+                const respostas = [
+                    'Ok! Vou verificar isso para você.',
+                    'Entendido! Em breve respondo.',
+                    'Obrigado pela mensagem! 👍',
+                    'Vou encaminhar para o vendedor.',
+                    'Sim, temos disponível!'
+                ];
+                const resposta = respostas[Math.floor(Math.random() * respostas.length)];
+                const replyDiv = document.createElement('div');
+                replyDiv.className = 'chat-message received';
+                replyDiv.innerHTML = `
+                    <div class="msg-user"><i class="fas fa-user"></i> Vendedor: </div>
+                    <div class="msg-text">${resposta}</div>
+                    <div class="msg-time">${new Date().toLocaleTimeString()}</div>
+                `;
+                chat.appendChild(replyDiv);
+                chat.scrollTop = chat.scrollHeight;
+                // Atualiza badge de mensagens
+                const badge = document.getElementById('msgCount');
+                badge.textContent = parseInt(badge.textContent) + 1;
+            }, 1000 + Math.random() * 2000);
+        }
+
+        // ===== MODAL =====
+        function abrirModal(tipo) {
+            const modal = document.getElementById('modal');
+            const body = document.getElementById('modalBody');
+
+            if (!tipo) {
+                modal.classList.add('active');
+                return;
+            }
+
+            const conteudos = {
+                'carrinho': verCarrinho,
+                'favoritos': verFavoritos,
+                'login': () => {
+                    body.innerHTML = `
+                        <h2><i class="fas fa-sign-in-alt"></i> Entrar</h2>
+                        <form onsubmit="fazerLogin(event)">
+                            <div class="form-group">
+                                <label>Email ou Usuário</label>
+                                <input type="email" placeholder="seu@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Senha</label>
+                                <input type="password" placeholder="••••••••" required>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn-primary" type="submit"><i class="fas fa-sign-in-alt"></i> Entrar</button>
+                                <button class="btn-secondary" onclick="abrirModal('criarconta')">Criar Conta</button>
+                            </div>
+                            <p style="margin-top:15px;text-align:center;font-size:0.9rem;color:var(--gray);">
+                                <a href="#" onclick="abrirModal('recuperar')" style="color:var(--primary);">Esqueceu a senha?</a>
+                            </p>
+                        </form>
+                    `;
+                    modal.classList.add('active');
+                },
+                'criarconta': () => {
+                    body.innerHTML = `
+                        <h2><i class="fas fa-user-plus"></i> Criar Conta</h2>
+                        <form onsubmit="criarConta(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Nome</label>
+                                    <input type="text" placeholder="Seu nome" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" placeholder="seu@email.com" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Senha</label>
+                                    <input type="password" placeholder="••••••••" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Confirmar Senha</label>
+                                    <input type="password" placeholder="••••••••" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Tipo de Conta</label>
+                                <select>
+                                    <option value="comprador">Comprador</option>
+                                    <option value="vendedor">Vendedor</option>
+                                    <option value="afiliado">Afiliado</option>
+                                    <option value="produtor">Produtor</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn-success" type="submit"><i class="fas fa-check"></i> Criar Conta</button>
+                                <button class="btn-secondary" onclick="abrirModal('login')">Já tenho conta</button>
+                            </div>
+                        </form>
+                    `;
+                    modal.classList.add('active');
+                },
+                'perfil': () => {
+                    body.innerHTML = `
+                        <h2><i class="fas fa-user-circle"></i> Meu Perfil</h2>
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="profile-info">
+                                <h3>João Silva</h3>
+                                <p>joao@email.com • Comprador</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Luanda, Angola</p>
+                            </div>
+                        </div>
+                        <div class="profile-stats">
+                            <div class="stat-card">
+                                <div class="stat-number">12</div>
+                                <div class="stat-label">Compras</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">4</div>
+                                <div class="stat-label">Vendas</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">Kz 5.200</div>
+                                <div class="stat-label">Ganhos</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">8</div>
+                                <div class="stat-label">Avaliações</div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn-primary" onclick="abrirModal('editarperfil')"><i class="fas fa-edit"></i> Editar Perfil</button>
+                            <button class="btn-secondary" onclick="abrirModal('configuracoes')"><i class="fas fa-cog"></i> Configurações</button>
+                        </div>
+                    `;
+                    modal.classList.add('active');
+                },
+                'configuracoes': () => {
+                    body.innerHTML = `
+                        <h2><i class="fas fa-cog"></i> Configurações</h2>
+                        <h3 style="margin-top:20px;color:var(--secondary);">Configurações do Autor</h3>
+                        <div class="form-group">
+                            <label>Nome do Site</label>
+                            <input type="text" value="SJCLEMENTE ONLINE">
+                        </div>
+                        <div class="form-group">
+                            <label>Cor Primária</label>
+                            <input type="color" value="#e94560">
+                        </div>
+                        <div class="form-group">
+                            <label>Moeda</label>
+                            <select>
+                                <option selected>Kz (Kwanza)</option>
+                                <option>$ (Dólar)</option>
+                                <option>€ (Euro)</option>
+                            </select>
+                        </div>
+                        <hr style="margin:20px 0;">
+                        <h3 style="margin-top:20px;color:var(--secondary);">Configurações do Utilizador</h3>
+                        <div class="form-group">
+                            <label>Idioma</label>
+                            <select>
+                                <option selected>Português</option>
+                                <option>Inglês</option>
+                                <option>Francês</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Notificações</label>
+                            <select>
+                                <option selected>Todas</option>
+                                <option>Email</option>
+                                <option>Push</option>
+                                <option>Nenhuma</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn-success" onclick="mostrarToast('Configurações salvas! ✅','success');fecharModal();"><i class="fas fa-save"></i> Salvar</button>
+                            <button class="btn-secondary" onclick="fecharModal()">Cancelar</button>
+                        </div>
+                    `;
+                    modal.classList.add('active');
+                },
+                'vendedor': () => {
+                    body.innerHTML = `
+                        <h2><i class="fas fa-store-alt"></i> Painel do Vendedor</h2>
+                        <div class="product-management">
+                            <h3>Meus Produtos</h3>
+                            <div class="product-list">
+                                <div class="product-item" style="display:flex;justify-content:space-between;padding:10px;background:var(--light);border-radius:8px;margin-bottom:8px;">
+                                    <span>Camiseta Preta - Kz 2.500</span>
+                                    <div class="product-actions">
+                                        <button class="btn-outline" style="padding:4px 12px;border:1px solid #ddd;border-radius:5px;cursor:pointer;" onclick="mostrarToast('Produto editado!','success')"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-outline" style="padding:4px 12px;border:1px solid #ddd;border-radius:5px;cursor:pointer;color:var(--danger);" onclick="mostrarToast('Produto removido!','error')"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="product-item" style="display:flex;justify-content:space-between;padding:10px;background
