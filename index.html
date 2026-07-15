@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SJCLEMENTE ONLINE - Loja Completa</title>
+    <title>SJCLEMENTE ONLINE - Plataforma Completa</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ===== RESET E VARIAVEIS ===== */
+        /* ============================================
+                   CSS COMPLETO - TODOS OS ESTILOS
+                   ============================================ */
+
+        /* ===== RESET E VARIÁVEIS ===== */
         * {
             margin: 0;
             padding: 0;
@@ -16,24 +20,55 @@
 
         :root {
             --primary: #e94560;
+            --primary-dark: #c73652;
             --secondary: #1a1a2e;
             --dark: #0f0f1a;
             --light: #f8f9fa;
             --gray: #6c757d;
+            --gray-light: #e9ecef;
             --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
             --whatsapp: #25D366;
             --instagram: #E4405F;
-            --shadow: 0 5px 20px rgba(0,0,0,0.1);
+            --facebook: #1877f2;
+            --tiktok: #000000;
+            --youtube: #ff0000;
+            --shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.15);
             --radius: 12px;
+            --radius-sm: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             background: #f0f2f5;
-            padding: 15px;
+            padding: 10px;
         }
 
+        /* ===== SCROLLBAR PERSONALIZADA ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* ===== CONTAINER PRINCIPAL ===== */
         .container {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
             background: white;
             border-radius: 20px;
@@ -41,111 +76,271 @@
             box-shadow: var(--shadow);
         }
 
-        /* ===== TOPO ===== */
-        .top-bar {
+        /* ============================================
+                   MENU PRINCIPAL
+                   ============================================ */
+        .main-menu {
+            background: var(--secondary);
+            border-radius: var(--radius);
+            padding: 0 20px;
+            margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 15px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #eee;
+            min-height: 65px;
         }
 
-        .logo h1 {
-            font-size: 1.8rem;
-            color: var(--secondary);
+        .main-menu .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
         }
-        .logo h1 i { color: var(--primary); }
-        .logo span { font-size: 0.8rem; color: var(--gray); display: block; }
+        .main-menu .logo i {
+            color: var(--primary);
+        }
 
-        .top-actions {
+        .main-menu .menu-links {
             display: flex;
-            gap: 15px;
+            gap: 5px;
             flex-wrap: wrap;
         }
 
-        .top-actions a {
-            color: var(--secondary);
-            font-size: 1.2rem;
-            transition: 0.3s;
+        .main-menu .menu-links a {
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            position: relative;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-        .top-actions a:hover { color: var(--primary); }
+
+        .main-menu .menu-links a:hover,
+        .main-menu .menu-links a.active {
+            color: white;
+            background: rgba(233, 69, 96, 0.3);
+        }
+
+        .main-menu .menu-links a i {
+            font-size: 1rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        /* ============================================
+                   SEMI-MENU (Submenu)
+                   ============================================ */
+        .semi-menu {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            padding: 12px 20px;
+            background: var(--light);
+            border-radius: var(--radius);
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            align-items: center;
+        }
+
+        .semi-menu a {
+            color: var(--secondary);
+            text-decoration: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .semi-menu a:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .semi-menu .separator {
+            color: var(--gray);
+            font-size: 0.7rem;
+        }
+
+        /* ============================================
+                   TOPO COM AÇÕES DO USUÁRIO
+                   ============================================ */
+        .top-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .top-actions .user-info {
+            color: white;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .top-actions .user-info img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .top-actions a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px;
+            border-radius: 50%;
+        }
+
+        .top-actions a:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
         .top-actions .badge {
             position: absolute;
-            top: -8px;
-            right: -8px;
+            top: 0;
+            right: 0;
             background: var(--primary);
             color: white;
             border-radius: 50%;
             padding: 2px 7px;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: bold;
+            min-width: 18px;
+            text-align: center;
         }
 
-        /* ===== BARRA DE PESQUISA ===== */
+        /* ============================================
+                   BARRA DE PESQUISA
+                   ============================================ */
         .search-section {
-            margin: 20px 0;
+            margin-bottom: 25px;
         }
+
         .search-box {
             display: flex;
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
         }
+
         .search-box input {
             flex: 1;
-            padding: 14px 20px;
+            padding: 14px 22px;
             border: 2px solid #ddd;
             border-radius: 30px 0 0 30px;
             font-size: 1rem;
             outline: none;
-            transition: 0.3s;
+            transition: var(--transition);
         }
+
         .search-box input:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 15px rgba(233, 69, 96, 0.15);
+            box-shadow: 0 0 20px rgba(233, 69, 96, 0.15);
         }
+
         .search-box button {
-            padding: 14px 28px;
+            padding: 14px 30px;
             background: var(--primary);
             color: white;
             border: 2px solid var(--primary);
             border-radius: 0 30px 30px 0;
             cursor: pointer;
-            transition: 0.3s;
+            transition: var(--transition);
             font-size: 1rem;
         }
+
         .search-box button:hover {
-            background: #c73652;
-            border-color: #c73652;
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
         }
 
-        /* ===== FILTROS E CATEGORIAS ===== */
-        .filters {
+        .search-filters {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
-            margin: 15px 0 25px;
             justify-content: center;
+            margin-top: 12px;
         }
-        .filters button {
-            padding: 8px 18px;
-            border: 2px solid #ddd;
-            border-radius: 25px;
-            background: transparent;
+
+        .search-filters button {
+            padding: 6px 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background: white;
             cursor: pointer;
-            transition: 0.3s;
-            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.8rem;
         }
-        .filters button:hover, .filters button.active {
+
+        .search-filters button:hover,
+        .search-filters button.active {
             background: var(--primary);
             color: white;
             border-color: var(--primary);
         }
 
-        /* ===== GRADE DE PRODUTOS ===== */
+        /* ============================================
+                   FILTROS DE PRODUTOS
+                   ============================================ */
+        .filters-section {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0 25px;
+            padding: 15px;
+            background: var(--light);
+            border-radius: var(--radius);
+        }
+
+        .filters-section .filter-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filters-section .filter-group label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        .filters-section select,
+        .filters-section input[type="range"] {
+            padding: 6px 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .filters-section select:focus {
+            border-color: var(--primary);
+        }
+
+        /* ============================================
+                   GRADE DE PRODUTOS
+                   ============================================ */
         .produtos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -158,28 +353,31 @@
             border-radius: var(--radius);
             padding: 18px;
             border: 1px solid #eee;
-            transition: 0.3s;
+            transition: var(--transition);
             position: relative;
         }
+
         .produto-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-hover);
         }
 
-        .produto-img {
+        .produto-card .produto-img {
             width: 100%;
             height: 220px;
-            background: #e9ecef;
+            background: var(--gray-light);
             border-radius: 10px;
             overflow: hidden;
             position: relative;
         }
-        .produto-img img {
+
+        .produto-card .produto-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        .produto-img .placeholder {
+
+        .produto-card .produto-img .placeholder {
             width: 100%;
             height: 100%;
             display: flex;
@@ -195,9 +393,10 @@
             left: 10px;
             background: var(--primary);
             color: white;
-            padding: 3px 12px;
+            padding: 3px 14px;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
+            font-weight: 600;
         }
 
         .produto-actions-top {
@@ -205,22 +404,28 @@
             top: 10px;
             right: 10px;
             display: flex;
-            gap: 8px;
+            flex-direction: column;
+            gap: 6px;
         }
+
         .produto-actions-top button {
-            background: rgba(255,255,255,0.9);
-            border: none;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
-            width: 35px;
-            height: 35px;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
             cursor: pointer;
-            transition: 0.3s;
-            font-size: 0.9rem;
+            transition: var(--transition);
+            font-size: 0.85rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
+
         .produto-actions-top button:hover {
             background: var(--primary);
             color: white;
+            transform: scale(1.1);
         }
+
         .produto-actions-top .favorito.ativo {
             color: var(--primary);
         }
@@ -228,22 +433,26 @@
         .produto-info {
             margin-top: 12px;
         }
-        .produto-info h3 {
+
+        .produto-info .produto-nome {
             font-size: 1.1rem;
             color: var(--secondary);
         }
-        .produto-info .descricao {
+
+        .produto-info .produto-descricao {
             font-size: 0.85rem;
             color: var(--gray);
             margin: 5px 0;
         }
-        .produto-info .preco {
+
+        .produto-info .produto-preco {
             font-size: 1.6rem;
             font-weight: bold;
             color: var(--primary);
             margin: 8px 0;
         }
-        .produto-info .preco-antigo {
+
+        .produto-info .produto-preco-antigo {
             font-size: 0.9rem;
             color: var(--gray);
             text-decoration: line-through;
@@ -251,133 +460,218 @@
             font-weight: normal;
         }
 
-        .produto-rating {
-            color: #ffc107;
+        .produto-info .produto-rating {
+            color: var(--warning);
             font-size: 0.9rem;
             margin: 5px 0;
         }
-        .produto-rating span {
+
+        .produto-info .produto-rating span {
             color: var(--gray);
             font-size: 0.8rem;
         }
 
+        .produto-info .produto-vendedor {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin: 5px 0;
+        }
+
+        .produto-info .produto-vendedor i {
+            color: var(--primary);
+        }
+
+        .produto-info .produto-estoque {
+            font-size: 0.8rem;
+            color: var(--success);
+            margin: 5px 0;
+        }
+        .produto-info .produto-estoque.esgotado {
+            color: var(--danger);
+        }
+
+        /* ===== BOTÕES DO PRODUTO ===== */
         .btn-group {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             flex-wrap: wrap;
             margin-top: 12px;
         }
-        .btn-group button, .btn-group a {
+
+        .btn-group button,
+        .btn-group a {
             flex: 1;
-            padding: 10px 12px;
+            min-width: 60px;
+            padding: 9px 10px;
             border: none;
-            border-radius: 8px;
+            border-radius: var(--radius-sm);
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-decoration: none;
             text-align: center;
-            transition: 0.3s;
+            transition: var(--transition);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 5px;
         }
-        .btn-carrinho {
-            background: var(--secondary);
-            color: white;
-        }
-        .btn-carrinho:hover { background: #0f0f1a; }
-        .btn-whatsapp {
-            background: var(--whatsapp);
-            color: white;
-        }
-        .btn-whatsapp:hover { background: #1da851; }
-        .btn-instagram {
-            background: var(--instagram);
-            color: white;
-        }
-        .btn-instagram:hover { background: #c13552; }
+
         .btn-comprar {
             background: var(--primary);
             color: white;
         }
-        .btn-comprar:hover { background: #c73652; }
+        .btn-comprar:hover {
+            background: var(--primary-dark);
+        }
 
-        /* ===== BOTÕES DE AÇÃO DOS PRODUTOS ===== */
+        .btn-carrinho {
+            background: var(--secondary);
+            color: white;
+        }
+        .btn-carrinho:hover {
+            background: var(--dark);
+        }
+
+        .btn-whatsapp {
+            background: var(--whatsapp);
+            color: white;
+        }
+        .btn-whatsapp:hover {
+            background: #1da851;
+        }
+
+        .btn-instagram {
+            background: var(--instagram);
+            color: white;
+        }
+        .btn-instagram:hover {
+            background: #c13552;
+        }
+
+        .btn-facebook {
+            background: var(--facebook);
+            color: white;
+        }
+        .btn-facebook:hover {
+            background: #1565c0;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--secondary);
+            border: 2px solid #ddd;
+        }
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* ===== INTERAÇÕES SOCIAIS ===== */
         .produto-social {
             display: flex;
-            gap: 12px;
-            margin-top: 10px;
-            padding-top: 10px;
+            gap: 15px;
+            margin-top: 12px;
+            padding-top: 12px;
             border-top: 1px solid #eee;
             flex-wrap: wrap;
         }
+
         .produto-social button {
             background: none;
             border: none;
             cursor: pointer;
             color: var(--gray);
             font-size: 0.85rem;
-            transition: 0.3s;
+            transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 5px;
+            padding: 4px 10px;
+            border-radius: 20px;
         }
+
         .produto-social button:hover {
+            background: var(--light);
             color: var(--primary);
         }
-        .produto-social .contador {
+
+        .produto-social button .contador {
             font-size: 0.75rem;
             color: var(--gray);
         }
 
-        /* ===== SEÇÃO DE DOWNLOADS ===== */
+        .produto-social button.curtido {
+            color: var(--primary);
+        }
+        .produto-social button.curtido i {
+            font-weight: 900;
+        }
+
+        /* ============================================
+                   SEÇÃO DE DOWNLOADS
+                   ============================================ */
         .download-section {
             margin: 40px 0 30px;
-            padding: 25px;
+            padding: 30px;
             background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             border-radius: var(--radius);
         }
-        .download-section h2 {
-            color: var(--secondary);
-            margin-bottom: 15px;
+
+        .download-section .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
         }
-        .download-section h2 i {
+
+        .download-section .section-header h2 {
+            color: var(--secondary);
+        }
+        .download-section .section-header h2 i {
             color: var(--primary);
         }
+
         .download-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 15px;
         }
+
         .download-item {
             background: white;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 18px 15px;
+            border-radius: var(--radius);
             text-align: center;
             border: 1px solid #ddd;
-            transition: 0.3s;
+            transition: var(--transition);
             cursor: pointer;
         }
+
         .download-item:hover {
             border-color: var(--primary);
-            transform: scale(1.02);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
         }
+
         .download-item i {
             font-size: 2.5rem;
             color: var(--primary);
         }
+
         .download-item h4 {
-            margin: 8px 0;
+            margin: 10px 0 5px;
             font-size: 0.95rem;
         }
+
         .download-item p {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--gray);
         }
+
         .download-item .btn-download {
-            margin-top: 8px;
+            margin-top: 10px;
             padding: 6px 20px;
             background: var(--primary);
             color: white;
@@ -385,15 +679,228 @@
             border-radius: 20px;
             cursor: pointer;
             font-size: 0.8rem;
-        }
-        .download-item .btn-download:hover {
-            background: #c73652;
+            transition: var(--transition);
         }
 
-        /* ===== RODAPÉ COMPLETO ===== */
+        .download-item .btn-download:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        /* ============================================
+                   SEÇÃO DE COMENTÁRIOS / FEEDBACK
+                   ============================================ */
+        .feedback-section {
+            margin: 30px 0;
+            padding: 25px;
+            background: var(--light);
+            border-radius: var(--radius);
+            border: 1px solid #eee;
+        }
+
+        .feedback-section h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .feedback-section h3 i {
+            color: var(--primary);
+        }
+
+        .feedback-item {
+            background: white;
+            padding: 15px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .feedback-item .feedback-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .feedback-item .feedback-user {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        .feedback-item .feedback-user i {
+            color: var(--primary);
+        }
+
+        .feedback-item .feedback-data {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .feedback-item .feedback-text {
+            margin-top: 8px;
+            color: #333;
+        }
+
+        .feedback-item .feedback-actions {
+            margin-top: 8px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .feedback-item .feedback-actions button {
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .feedback-item .feedback-actions button:hover {
+            color: var(--primary);
+        }
+
+        .feedback-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .feedback-form input,
+        .feedback-form textarea {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--radius-sm);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .feedback-form input:focus,
+        .feedback-form textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .feedback-form textarea {
+            min-height: 60px;
+            resize: vertical;
+        }
+
+        .feedback-form button {
+            padding: 10px 25px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .feedback-form button:hover {
+            background: var(--primary-dark);
+        }
+
+        /* ============================================
+                   SEÇÃO DE MENSAGENS (Chat)
+                   ============================================ */
+        .chat-section {
+            margin: 30px 0;
+            padding: 25px;
+            background: white;
+            border-radius: var(--radius);
+            border: 1px solid #eee;
+        }
+
+        .chat-section h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .chat-messages {
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            background: var(--light);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+
+        .chat-message {
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            border-radius: var(--radius-sm);
+            max-width: 80%;
+        }
+
+        .chat-message.received {
+            background: white;
+            border: 1px solid #ddd;
+            align-self: flex-start;
+        }
+
+        .chat-message.sent {
+            background: var(--primary);
+            color: white;
+            margin-left: auto;
+        }
+
+        .chat-message .msg-user {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .chat-message .msg-user i {
+            font-size: 0.7rem;
+        }
+
+        .chat-message .msg-text {
+            margin-top: 3px;
+        }
+        .chat-message .msg-time {
+            font-size: 0.65rem;
+            opacity: 0.7;
+            margin-top: 3px;
+            text-align: right;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--radius-sm);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .chat-input input:focus {
+            border-color: var(--primary);
+        }
+
+        .chat-input button {
+            padding: 10px 25px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .chat-input button:hover {
+            background: var(--primary-dark);
+        }
+
+        /* ============================================
+                   RODAPÉ COMPLETO
+                   ============================================ */
         footer {
             margin-top: 40px;
-            padding: 30px 0 15px;
+            padding: 35px 0 15px;
             border-top: 2px solid #eee;
         }
 
@@ -403,39 +910,72 @@
             gap: 30px;
             margin-bottom: 25px;
         }
+
         .footer-grid h4 {
             color: var(--secondary);
             margin-bottom: 12px;
+            font-size: 1.05rem;
         }
+
+        .footer-grid h4 i {
+            color: var(--primary);
+            margin-right: 6px;
+        }
+
         .footer-grid ul {
             list-style: none;
         }
+
         .footer-grid ul li {
             margin-bottom: 8px;
         }
+
         .footer-grid ul li a {
             color: var(--gray);
             text-decoration: none;
-            transition: 0.3s;
+            transition: var(--transition);
             font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
+
         .footer-grid ul li a:hover {
             color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-grid ul li .payment-icon {
+            font-size: 1.3rem;
+            margin-right: 5px;
         }
 
         .footer-social {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             margin-top: 10px;
+            flex-wrap: wrap;
         }
+
         .footer-social a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--secondary);
-            font-size: 1.6rem;
-            transition: 0.3s;
+            font-size: 1.3rem;
+            transition: var(--transition);
+            text-decoration: none;
         }
+
         .footer-social a:hover {
-            color: var(--primary);
+            background: var(--primary);
+            color: white;
             transform: translateY(-3px);
+            box-shadow: var(--shadow);
         }
 
         .footer-bottom {
@@ -446,7 +986,28 @@
             font-size: 0.85rem;
         }
 
-        /* ===== MODAL ===== */
+        .footer-bottom .footer-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .footer-bottom .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* ============================================
+                   MODAL
+                   ============================================ */
         .modal {
             display: none;
             position: fixed;
@@ -454,25 +1015,40 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.6);
-            z-index: 999;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 9999;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            animation: fadeIn 0.3s ease;
         }
+
         .modal.active {
             display: flex;
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
         .modal-content {
             background: white;
             border-radius: 20px;
-            max-width: 600px;
+            max-width: 700px;
             width: 100%;
             padding: 30px;
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
         }
+
         .modal-close {
             position: absolute;
             top: 15px;
@@ -482,376 +1058,308 @@
             color: var(--gray);
             background: none;
             border: none;
+            transition: var(--transition);
         }
-        .modal-close:hover { color: var(--primary); }
 
-        /* ===== CARRINHO ===== */
+        .modal-close:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        .modal-content h2 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .modal-content h2 i {
+            color: var(--primary);
+        }
+
+        /* ============================================
+                   CARRINHO
+                   ============================================ */
         .carrinho-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
+            padding: 12px 0;
             border-bottom: 1px solid #eee;
         }
+
+        .carrinho-item .item-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .carrinho-item .item-info .item-nome {
+            font-weight: 500;
+        }
+
+        .carrinho-item .item-info .item-preco {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .carrinho-item .item-qtd {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .carrinho-item .item-qtd button {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .carrinho-item .item-qtd button:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .carrinho-item .item-qtd span {
+            min-width: 25px;
+            text-align: center;
+        }
+
+        .carrinho-item .item-remove {
+            color: var(--danger);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .carrinho-item .item-remove:hover {
+            transform: scale(1.2);
+        }
+
         .carrinho-total {
             font-size: 1.4rem;
             font-weight: bold;
             color: var(--primary);
             text-align: right;
             margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #eee;
         }
 
-        /* ===== RESPONSIVO ===== */
-        @media (max-width: 768px) {
-            .top-bar { flex-direction: column; text-align: center; }
-            .search-box input { font-size: 0.9rem; }
-            .produtos-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 480px) {
-            .footer-grid { grid-template-columns: 1fr; }
-            .btn-group button, .btn-group a { flex: 1 1 100%; }
+        .carrinho-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
         }
 
-        /* ===== TOAST ===== */
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--secondary);
+        .carrinho-actions button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .carrinho-actions .btn-finalizar {
+            background: var(--success);
             color: white;
-            padding: 15px 25px;
-            border-radius: 10px;
-            display: none;
-            z-index: 1000;
-            animation: slideUp 0.3s ease;
         }
-        .toast.show { display: block; }
-        @keyframes slideUp {
-            from { transform: translateY(100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        .carrinho-actions .btn-finalizar:hover {
+            background: #218838;
         }
-    </style>
-</head>
-<body>
 
-<div class="container">
-
-    <!-- ===== TOPO ===== -->
-    <div class="top-bar">
-        <div class="logo">
-            <h1><i class="fas fa-store"></i> SJCLEMENTE</h1>
-            <span>Produtos diversos para você! 🇦🇴</span>
-        </div>
-        <div class="top-actions">
-            <a href="#" onclick="abrirModal('favoritos')" title="Favoritos">
-                <i class="fas fa-heart"></i>
-                <span class="badge" id="favCount">0</span>
-            </a>
-            <a href="#" onclick="abrirModal('carrinho')" title="Carrinho">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="badge" id="cartCount">0</span>
-            </a>
-            <a href="#" onclick="abrirModal('saque')" title="Meu Saque">
-                <i class="fas fa-wallet"></i>
-            </a>
-            <a href="#" onclick="abrirModal('ajuda')" title="Ajuda">
-                <i class="fas fa-question-circle"></i>
-            </a>
-            <a href="#" onclick="abrirModal('perfil')" title="Perfil">
-                <i class="fas fa-user"></i>
-            </a>
-        </div>
-    </div>
-
-    <!-- ===== BARRA DE PESQUISA ===== -->
-    <div class="search-section">
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="🔍 Buscar produtos, ebooks, PDFs..." onkeyup="buscarProdutos()">
-            <button onclick="buscarProdutos()"><i class="fas fa-search"></i></button>
-        </div>
-    </div>
-
-    <!-- ===== FILTROS ===== -->
-    <div class="filters">
-        <button class="active" onclick="filtrar('todos')"> Todos</button>
-        <button onclick="filtrar('roupa')"> Roupas</button>
-        <button onclick="filtrar('ebook')"> Ebooks</button>
-        <button onclick="filtrar('acessorio')"> Acessórios</button>
-        <button onclick="filtrar('promocao')"> Promoções</button>
-    </div>
-
-    <!-- ===== PRODUTOS ===== -->
-    <div class="produtos-grid" id="produtosGrid">
-        <!-- Produto 1 -->
-        <div class="produto-card" data-categoria="roupa" data-nome="camiseta preta">
-            <div class="produto-img">
-                <img src="https://via.placeholder.com/400x220/333/fff?text=CAMISETA+PRETA" alt="Camiseta Preta">
-                <span class="produto-badge"> Mais Vendido</span>
-                <div class="produto-actions-top">
-                    <button onclick="favoritar(this)" title="Favoritar"><i class="far fa-heart"></i></button>
-                    <button onclick="compartilhar('Camiseta Preta', 'Kz 2.500')" title="Compartilhar"><i class="fas fa-share-alt"></i></button>
-                </div>
-            </div>
-            <div class="produto-info">
-                <h3>Camiseta Preta</h3>
-                <p class="descricao">100% algodão, confortável e estilosa</p>
-                <div class="produto-rating">
-                     <span>(24 avaliações)</span>
-                </div>
-                <div class="preco">
-                    Kz 2.500
-                    <span class="preco-antigo">Kz 3.200</span>
-                </div>
-                <div class="btn-group">
-                    <button class="btn-comprar" onclick="comprar('Camiseta Preta', 2500)"><i class="fas fa-bolt"></i> Comprar</button>
-                    <button class="btn-carrinho" onclick="adicionarAoCarrinho('Camiseta Preta', 2500)"><i class="fas fa-cart-plus"></i> Carrinho</button>
-                    <a href="https://wa.me/244900000000?text=Olá! Quero comprar a Camiseta Preta" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://instagram.com/seuperfil" target="_blank" class="btn-instagram"><i class="fab fa-instagram"></i></a>
-                </div>
-                <div class="produto-social">
-                    <button onclick="curtir(this)"><i class="far fa-thumbs-up"></i> Curtir <span class="contador">12</span></button>
-                    <button onclick="comentar(this)"><i class="far fa-comment"></i> Comentar <span class="contador">5</span></button>
-                    <button onclick="compartilhar('Camiseta Preta', 'Kz 2.500')"><i class="fas fa-share-alt"></i> Partilhar</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Produto 2 -->
-        <div class="produto-card" data-categoria="ebook" data-nome="ebook python">
-            <div class="produto-img">
-                <img src="https://via.placeholder.com/400x220/1a1a2e/fff?text=EBOOK+PYTHON" alt="Ebook Python">
-                <span class="produto-badge">Digital</span>
-                <div class="produto-actions-top">
-                    <button onclick="favoritar(this)"><i class="far fa-heart"></i></button>
-                    <button onclick="compartilhar('Ebook Python', 'Kz 3.000')"><i class="fas fa-share-alt"></i></button>
-                </div>
-            </div>
-            <div class="produto-info">
-                <h3>Ebook Python Completo</h3>
-                <p class="descricao">Aprenda do zero ao avançado em PDF</p>
-                <div class="produto-rating">
-                     <span>(18 avaliações)</span>
-                </div>
-                <div class="preco">
-                    Kz 3.000
-                    <span class="preco-antigo">Kz 5.000</span>
-                </div>
-                <div class="btn-group">
-                    <button class="btn-comprar" onclick="comprar('Ebook Python', 3000)"><i class="fas fa-bolt"></i> Comprar</button>
-                    <button class="btn-carrinho" onclick="adicionarAoCarrinho('Ebook Python', 3000)"><i class="fas fa-cart-plus"></i> Carrinho</button>
-                    <a href="https://wa.me/244900000000?text=Olá! Quero comprar o Ebook Python" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://instagram.com/seuperfil" target="_blank" class="btn-instagram"><i class="fab fa-instagram"></i></a>
-                </div>
-                <div class="produto-social">
-                    <button onclick="curtir(this)"><i class="far fa-thumbs-up"></i> Curtir <span class="contador">8</span></button>
-                    <button onclick="comentar(this)"><i class="far fa-comment"></i> Comentar <span class="contador">3</span></button>
-                    <button onclick="compartilhar('Ebook Python', 'Kz 3.000')"><i class="fas fa-share-alt"></i> Partilhar</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Produto 3 -->
-        <div class="produto-card" data-categoria="acessorio" data-nome="relógio digital">
-            <div class="produto-img">
-                <img src="https://via.placeholder.com/400x220/555/fff?text=REL%C3%93GIO" alt="Relógio">
-                <span class="produto-badge">⌚ Oferta</span>
-                <div class="produto-actions-top">
-                    <button onclick="favoritar(this)"><i class="far fa-heart"></i></button>
-                    <button onclick="compartilhar('Relógio Digital', 'Kz 4.500')"><i class="fas fa-share-alt"></i></button>
-                </div>
-            </div>
-            <div class="produto-info">
-                <h3>Relógio Digital Esportivo</h3>
-                <p class="descricao">Impermeável, com cronômetro e luz</p>
-                <div class="produto-rating">
-                    ★★★☆☆ <span>(9 avaliações)</span>
-                </div>
-                <div class="preco">
-                    Kz 4.500
-                    <span class="preco-antigo">Kz 6.000</span>
-                </div>
-                <div class="btn-group">
-                    <button class="btn-comprar" onclick="comprar('Relógio Digital', 4500)"><i class="fas fa-bolt"></i> Comprar</button>
-                    <button class="btn-carrinho" onclick="adicionarAoCarrinho('Relógio Digital', 4500)"><i class="fas fa-cart-plus"></i> Carrinho</button>
-                    <a href="https://wa.me/244900000000?text=Olá! Quero comprar o Relógio Digital" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://instagram.com/seuperfil" target="_blank" class="btn-instagram"><i class="fab fa-instagram"></i></a>
-                </div>
-                <div class="produto-social">
-                    <button onclick="curtir(this)"><i class="far fa-thumbs-up"></i> Curtir <span class="contador">6</span></button>
-                    <button onclick="comentar(this)"><i class="far fa-comment"></i> Comentar <span class="contador">2</span></button>
-                    <button onclick="compartilhar('Relógio Digital', 'Kz 4.500')"><i class="fas fa-share-alt"></i> Partilhar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== SEÇÃO DE DOWNLOADS ===== -->
-    <div class="download-section">
-        <h2><i class="fas fa-download"></i> Biblioteca Digital - Baixe Grátis</h2>
-        <div class="download-grid">
-            <div class="download-item">
-                <i class="fas fa-file-pdf"></i>
-                <h4>Guia de Programação</h4>
-                <p>PDF • 2.5 MB</p>
-                <button class="btn-download" onclick="baixarArquivo('Guia Programação', 'PDF')"><i class="fas fa-download"></i> Baixar</button>
-            </div>
-            <div class="download-item">
-                <i class="fas fa-file-alt"></i>
-                <h4>Manual de Negócios</h4>
-                <p>DOC • 1.8 MB</p>
-                <button class="btn-download" onclick="baixarArquivo('Manual Negócios', 'DOC')"><i class="fas fa-download"></i> Baixar</button>
-            </div>
-            <div class="download-item">
-                <i class="fas fa-file-image"></i>
-                <h4>Wallpapers HD</h4>
-                <p>ZIP • 15 MB</p>
-                <button class="btn-download" onclick="baixarArquivo('Wallpapers HD', 'ZIP')"><i class="fas fa-download"></i> Baixar</button>
-            </div>
-            <div class="download-item">
-                <i class="fas fa-file-audio"></i>
-                <h4>Podcast Motivacional</h4>
-                <p>MP3 • 8 MB</p>
-                <button class="btn-download" onclick="baixarArquivo('Podcast Motivacional', 'MP3')"><i class="fas fa-download"></i> Baixar</button>
-            </div>
-            <div class="download-item">
-                <i class="fas fa-file-video"></i>
-                <h4>Curso em Vídeo</h4>
-                <p>MP4 • 120 MB</p>
-                <button class="btn-download" onclick="baixarArquivo('Curso em Vídeo', 'MP4')"><i class="fas fa-download"></i> Baixar</button>
-            </div>
-            <div class="download-item">
-                <i class="fas fa-file-archive"></i>
-                <h4>Template HTML</h4>
-                <p>ZIP • 3 MB</p>
-                <button class="btn-download" onclick="baixarArquivo('Template HTML', 'ZIP')"><i class="fas fa-download"></i> Baixar</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== RODAPÉ ===== -->
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <h4><i class="fas fa-store"></i> SJCLEMENTE</h4>
-                <p style="color: var(--gray); font-size: 0.9rem;">Produtos diversos para você!<br>Angola 🇦🇴</p>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-tiktok"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-            <div>
-                <h4>Links Úteis</h4>
-                <ul>
-                    <li><a href="#" onclick="abrirModal('ajuda')">Ajuda</a></li>
-                    <li><a href="#" onclick="abrirModal('politica')">Política de Privacidade</a></li>
-                    <li><a href="#" onclick="abrirModal('termos')">Termos de Uso</a></li>
-                    <li><a href="#" onclick="abrirModal('pagamentos')">Métodos de Pagamento</a></li>
-                    <li><a href="#" onclick="abrirModal('saque')">Meu Saque</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Contato</h4>
-                <ul>
-                    <li><a href="https://wa.me/244900000000" target="_blank"><i class="fab fa-whatsapp" style="color: var(--whatsapp);"></i> WhatsApp</a></li>
-                    <li><a href="https://instagram.com/seuperfil" target="_blank"><i class="fab fa-instagram" style="color: var(--instagram);"></i> Instagram</a></li>
-                    <li><a href="#"><i class="fas fa-envelope"></i> Email</a></li>
-                    <li><a href="#"><i class="fas fa-phone"></i> +244 900 000 000</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Formas de Pagamento</h4>
-                <ul>
-                    <li><i class="fas fa-credit-card"></i> Cartão de Crédito</li>
-                    <li><i class="fas fa-mobile-alt"></i> Emola / M-Pesa</li>
-                    <li><i class="fas fa-university"></i> Transferência Bancária</li>
-                    <li><i class="fas fa-hand-holding-usd"></i> Pagamento na Entrega</li>
-                    <li><i class="fas fa-bitcoin"></i> Criptomoedas</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 SJCLEMENTE ONLINE - Todos os direitos reservados</p>
-            <p style="font-size: 0.75rem; color: #aaa;">Feito com <i class="fas fa-heart" style="color: var(--primary);"></i> em Angola</p>
-        </div>
-    </footer>
-
-</div>
-
-<!-- ===== MODAL ===== -->
-<div class="modal" id="modal">
-    <div class="modal-content">
-        <button class="modal-close" onclick="fecharModal()">&times;</button>
-        <div id="modalBody">
-            <!-- Conteúdo dinâmico -->
-        </div>
-    </div>
-</div>
-
-<!-- ===== TOAST ===== -->
-<div class="toast" id="toast"></div>
-
-<!-- ===== JAVASCRIPT ===== -->
-<script>
-    // ===== VARIÁVEIS GLOBAIS =====
-    let carrinho = [];
-    let favoritos = [];
-    let contadorCurtidas = {};
-
-    // ===== BUSCAR PRODUTOS =====
-    function buscarProdutos() {
-        const input = document.getElementById('searchInput');
-        const filtro = input.value.toLowerCase().trim();
-        const cards = document.querySelectorAll('.produto-card');
-
-        cards.forEach(card => {
-            const nome = card.getAttribute('data-nome').toLowerCase();
-            card.style.display = nome.includes(filtro) || filtro === '' ? 'block' : 'none';
-        });
-    }
-
-    // ===== FILTRAR POR CATEGORIA =====
-    function filtrar(categoria) {
-        const cards = document.querySelectorAll('.produto-card');
-        document.querySelectorAll('.filters button').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
-
-        cards.forEach(card => {
-            if (categoria === 'todos' || card.getAttribute('data-categoria') === categoria) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    }
-
-    // ===== CARRINHO =====
-    function adicionarAoCarrinho(nome, preco) {
-        const item = carrinho.find(p => p.nome === nome);
-        if (item) {
-            item.quantidade++;
-        } else {
-            carrinho.push({ nome, preco, quantidade: 1 });
+        .carrinho-actions .btn-limpar {
+            background: var(--danger);
+            color: white;
         }
-        atualizarCarrinho();
-        mostrarToast(`${nome} adicionado ao carrinho! 🛒`);
-    }
-
-    function removerDoCarrinho(nome) {
-        carrinho = carrinho.filter(p => p.nome !== nome);
-        atualizarCarrinho();
-        mostrarToast('Item removido do carrinho');
-    }
-
-    function atualizarCarrinho() {
-        document.getElementById('cartCount').textContent = carrinho.reduce((sum, p) => sum + p.quantidade, 0);
-    }
-
-    function verCarrinho() {
-        if (carrinho.length === 0) {
-            return '<p style="text-align:center;padding:30px;"><i class="fas fa-shopping-cart" style="font-size:3rem;color:#ddd;display:block;"></i>Seu carrinho está vazio</p>';
+        .carrinho-actions .btn-limpar:hover {
+            background: #c82333;
         }
-        let html = `<h2><i class="fas
+
+        /* ============================================
+                   FORMULÁRIOS (Login, Cadastro, etc)
+                   ============================================ */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #ddd;
+            border-radius: var(--radius-sm);
+            outline: none;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(233, 69, 96, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .form-actions button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .form-actions .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .form-actions .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .form-actions .btn-secondary {
+            background: var(--gray-light);
+            color: var(--secondary);
+        }
+        .form-actions .btn-secondary:hover {
+            background: #d5d8dd;
+        }
+
+        .form-actions .btn-success {
+            background: var(--success);
+            color: white;
+        }
+        .form-actions .btn-success:hover {
+            background: #218838;
+        }
+
+        /* ============================================
+                   PERFIL DO USUÁRIO
+                   ============================================ */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: var(--light);
+            border-radius: var(--radius);
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .profile-header .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--gray-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--gray);
+            border: 3px solid var(--primary);
+            overflow: hidden;
+        }
+
+        .profile-header .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-header .profile-info h3 {
+            color: var(--secondary);
+        }
+        .profile-header .profile-info p {
+            color: var(--gray);
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .profile-stats .stat-card {
+            background: var(--light);
+            padding: 15px;
+            border-radius: var(--radius-sm);
+            text-align: center;
+        }
+
+        .profile-stats .stat-card .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .profile-stats .stat-card .stat-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* ============================================
+                   GESTÃO DE PRODUTOS (VENDEDOR)
+                   ============================================ */
+        .product-management {
+            margin: 20px 0;
+        }
+
+        .product-management .product-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .product-management .product-list .product-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: var(--light);
+            border-radius: var(--radius-sm);
+            border: 1px solid #eee;
+        }
+
+        .product-management .product-list .product-item .product-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .product
