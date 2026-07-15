@@ -1,111 +1,857 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Megamix Store</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background-color: #6200ea;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    .container {
-      padding: 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .product {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      padding: 15px;
-      text-align: center;
-    }
-    .product img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-    .product h3 {
-      margin: 10px 0;
-    }
-    .product p {
-      font-size: 1.2em;
-      color: #2e7d32;
-    }
-    .contact {
-      margin-top: 10px;
-    }
-    .contact a {
-      display: inline-block;
-      margin: 5px;
-      text-decoration: none;
-      background-color: #03a9f4;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-    .contact a:hover {
-      background-color: #0288d1;
-    }
-    footer {
-      text-align: center;
-      background-color: #eee;
-      padding: 20px;
-      margin-top: 40px;
-    }
-    .socials a {
-      margin: 5px;
-      text-decoration: none;
-      color: #6200ea;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SJCLEMENTE ONLINE - Loja Completa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ===== RESET E VARIAVEIS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #e94560;
+            --secondary: #1a1a2e;
+            --dark: #0f0f1a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #28a745;
+            --whatsapp: #25D366;
+            --instagram: #E4405F;
+            --shadow: 0 5px 20px rgba(0,0,0,0.1);
+            --radius: 12px;
+        }
+
+        body {
+            background: #f0f2f5;
+            padding: 15px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        /* ===== TOPO ===== */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+        .logo h1 i { color: var(--primary); }
+        .logo span { font-size: 0.8rem; color: var(--gray); display: block; }
+
+        .top-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .top-actions a {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            transition: 0.3s;
+            text-decoration: none;
+            position: relative;
+        }
+        .top-actions a:hover { color: var(--primary); }
+        .top-actions .badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            padding: 2px 7px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        /* ===== BARRA DE PESQUISA ===== */
+        .search-section {
+            margin: 20px 0;
+        }
+        .search-box {
+            display: flex;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .search-box input {
+            flex: 1;
+            padding: 14px 20px;
+            border: 2px solid #ddd;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+        .search-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(233, 69, 96, 0.15);
+        }
+        .search-box button {
+            padding: 14px 28px;
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+        .search-box button:hover {
+            background: #c73652;
+            border-color: #c73652;
+        }
+
+        /* ===== FILTROS E CATEGORIAS ===== */
+        .filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0 25px;
+            justify-content: center;
+        }
+        .filters button {
+            padding: 8px 18px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            background: transparent;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+        .filters button:hover, .filters button.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* ===== GRADE DE PRODUTOS ===== */
+        .produtos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .produto-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 18px;
+            border: 1px solid #eee;
+            transition: 0.3s;
+            position: relative;
+        }
+        .produto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .produto-img {
+            width: 100%;
+            height: 220px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .produto-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .produto-img .placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #adb5bd;
+        }
+
+        .produto-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--primary);
+            color: white;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+
+        .produto-actions-top {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 8px;
+        }
+        .produto-actions-top button {
+            background: rgba(255,255,255,0.9);
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+        .produto-actions-top button:hover {
+            background: var(--primary);
+            color: white;
+        }
+        .produto-actions-top .favorito.ativo {
+            color: var(--primary);
+        }
+
+        .produto-info {
+            margin-top: 12px;
+        }
+        .produto-info h3 {
+            font-size: 1.1rem;
+            color: var(--secondary);
+        }
+        .produto-info .descricao {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin: 5px 0;
+        }
+        .produto-info .preco {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 8px 0;
+        }
+        .produto-info .preco-antigo {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-decoration: line-through;
+            margin-left: 10px;
+            font-weight: normal;
+        }
+
+        .produto-rating {
+            color: #ffc107;
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+        .produto-rating span {
+            color: var(--gray);
+            font-size: 0.8rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+        .btn-group button, .btn-group a {
+            flex: 1;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .btn-carrinho {
+            background: var(--secondary);
+            color: white;
+        }
+        .btn-carrinho:hover { background: #0f0f1a; }
+        .btn-whatsapp {
+            background: var(--whatsapp);
+            color: white;
+        }
+        .btn-whatsapp:hover { background: #1da851; }
+        .btn-instagram {
+            background: var(--instagram);
+            color: white;
+        }
+        .btn-instagram:hover { background: #c13552; }
+        .btn-comprar {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-comprar:hover { background: #c73652; }
+
+        /* ===== BOTÕES DE AÇÃO DOS PRODUTOS ===== */
+        .produto-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+            flex-wrap: wrap;
+        }
+        .produto-social button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--gray);
+            font-size: 0.85rem;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .produto-social button:hover {
+            color: var(--primary);
+        }
+        .produto-social .contador {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+
+        /* ===== SEÇÃO DE DOWNLOADS ===== */
+        .download-section {
+            margin: 40px 0 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: var(--radius);
+        }
+        .download-section h2 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        .download-section h2 i {
+            color: var(--primary);
+        }
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .download-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .download-item:hover {
+            border-color: var(--primary);
+            transform: scale(1.02);
+        }
+        .download-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        .download-item h4 {
+            margin: 8px 0;
+            font-size: 0.95rem;
+        }
+        .download-item p {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        .download-item .btn-download {
+            margin-top: 8px;
+            padding: 6px 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        .download-item .btn-download:hover {
+            background: #c73652;
+        }
+
+        /* ===== RODAPÉ COMPLETO ===== */
+        footer {
+            margin-top: 40px;
+            padding: 30px 0 15px;
+            border-top: 2px solid #eee;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+        .footer-grid h4 {
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+        .footer-grid ul {
+            list-style: none;
+        }
+        .footer-grid ul li {
+            margin-bottom: 8px;
+        }
+        .footer-grid ul li a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+        .footer-grid ul li a:hover {
+            color: var(--primary);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .footer-social a {
+            color: var(--secondary);
+            font-size: 1.6rem;
+            transition: 0.3s;
+        }
+        .footer-social a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 100%;
+            padding: 30px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--gray);
+            background: none;
+            border: none;
+        }
+        .modal-close:hover { color: var(--primary); }
+
+        /* ===== CARRINHO ===== */
+        .carrinho-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .carrinho-total {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-align: right;
+            margin-top: 15px;
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 768px) {
+            .top-bar { flex-direction: column; text-align: center; }
+            .search-box input { font-size: 0.9rem; }
+            .produtos-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .btn-group button, .btn-group a { flex: 1 1 100%; }
+        }
+
+        /* ===== TOAST ===== */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            display: none;
+            z-index: 1000;
+            animation: slideUp 0.3s ease;
+        }
+        .toast.show { display: block; }
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>SJCLEMENTE ONLINE</h1>
-    <p>Produtos diversos para você!</p>
-  </header>  <div class="container">
-    <div class="product">
-      <img src="https://via.placeholder.com/200" alt="Produto 1">
-      <h3>capiseta preta para você1</h3>
-      <p>Kz 2.500</p>
-      <div class="contact">
-        <a href="https://wa.me/244930223136" target="_blank">WhatsApp</a>
-        <a href="https://instagram.com/sergioj.clemente" target="_blank">Instagram</a>
-      </div>
-    </div><div class="product">
-  <img src="https://via.placeholder.com/200" alt="Produto 2">
-  <h3>Produto 2</h3>
-  <p>Kz 3.000</p>
-  <div class="contact">
-    <a href="https://wa.me/244930223136" target="_blank">WhatsApp</a>
-    <a href="https://instagram.com/sergioj.clemente" target="_blank">Instagram</a>
-  </div>
+
+<div class="container">
+
+    <!-- ===== TOPO ===== -->
+    <div class="top-bar">
+        <div class="logo">
+            <h1><i class="fas fa-store"></i> SJCLEMENTE</h1>
+            <span>Produtos diversos para você! 🇦🇴</span>
+        </div>
+        <div class="top-actions">
+            <a href="#" onclick="abrirModal('favoritos')" title="Favoritos">
+                <i class="fas fa-heart"></i>
+                <span class="badge" id="favCount">0</span>
+            </a>
+            <a href="#" onclick="abrirModal('carrinho')" title="Carrinho">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge" id="cartCount">0</span>
+            </a>
+            <a href="#" onclick="abrirModal('saque')" title="Meu Saque">
+                <i class="fas fa-wallet"></i>
+            </a>
+            <a href="#" onclick="abrirModal('ajuda')" title="Ajuda">
+                <i class="fas fa-question-circle"></i>
+            </a>
+            <a href="#" onclick="abrirModal('perfil')" title="Perfil">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- ===== BARRA DE PESQUISA ===== -->
+    <div class="search-section">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Buscar produtos, ebooks, PDFs..." onkeyup="buscarProdutos()">
+            <button onclick="buscarProdutos()"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+
+    <!-- ===== FILTROS ===== -->
+    <div class="filters">
+        <button class="active" onclick="filtrar('todos')"> Todos</button>
+        <button onclick="filtrar('roupa')"> Roupas</button>
+        <button onclick="filtrar('ebook')"> Ebooks</button>
+        <button onclick="filtrar('acessorio')"> Acessórios</button>
+        <button onclick="filtrar('promocao')"> Promoções</button>
+    </div>
+
+    <!-- ===== PRODUTOS ===== -->
+    <div class="produtos-grid" id="produtosGrid">
+        <!-- Produto 1 -->
+        <div class="produto-card" data-categoria="roupa" data-nome="camiseta preta">
+            <div class="produto-img">
+                <img src="https://via.placeholder.com/400x220/333/fff?text=CAMISETA+PRETA" alt="Camiseta Preta">
+                <span class="produto-badge"> Mais Vendido</span>
+                <div class="produto-actions-top">
+                    <button onclick="favoritar(this)" title="Favoritar"><i class="far fa-heart"></i></button>
+                    <button onclick="compartilhar('Camiseta Preta', 'Kz 2.500')" title="Compartilhar"><i class="fas fa-share-alt"></i></button>
+                </div>
+            </div>
+            <div class="produto-info">
+                <h3>Camiseta Preta</h3>
+                <p class="descricao">100% algodão, confortável e estilosa</p>
+                <div class="produto-rating">
+                     <span>(24 avaliações)</span>
+                </div>
+                <div class="preco">
+                    Kz 2.500
+                    <span class="preco-antigo">Kz 3.200</span>
+                </div>
+                <div class="btn-group">
+                    <button class="btn-comprar" onclick="comprar('Camiseta Preta', 2500)"><i class="fas fa-bolt"></i> Comprar</button>
+                    <button class="btn-carrinho" onclick="adicionarAoCarrinho('Camiseta Preta', 2500)"><i class="fas fa-cart-plus"></i> Carrinho</button>
+                    <a href="https://wa.me/244900000000?text=Olá! Quero comprar a Camiseta Preta" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://instagram.com/seuperfil" target="_blank" class="btn-instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="produto-social">
+                    <button onclick="curtir(this)"><i class="far fa-thumbs-up"></i> Curtir <span class="contador">12</span></button>
+                    <button onclick="comentar(this)"><i class="far fa-comment"></i> Comentar <span class="contador">5</span></button>
+                    <button onclick="compartilhar('Camiseta Preta', 'Kz 2.500')"><i class="fas fa-share-alt"></i> Partilhar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produto 2 -->
+        <div class="produto-card" data-categoria="ebook" data-nome="ebook python">
+            <div class="produto-img">
+                <img src="https://via.placeholder.com/400x220/1a1a2e/fff?text=EBOOK+PYTHON" alt="Ebook Python">
+                <span class="produto-badge">Digital</span>
+                <div class="produto-actions-top">
+                    <button onclick="favoritar(this)"><i class="far fa-heart"></i></button>
+                    <button onclick="compartilhar('Ebook Python', 'Kz 3.000')"><i class="fas fa-share-alt"></i></button>
+                </div>
+            </div>
+            <div class="produto-info">
+                <h3>Ebook Python Completo</h3>
+                <p class="descricao">Aprenda do zero ao avançado em PDF</p>
+                <div class="produto-rating">
+                     <span>(18 avaliações)</span>
+                </div>
+                <div class="preco">
+                    Kz 3.000
+                    <span class="preco-antigo">Kz 5.000</span>
+                </div>
+                <div class="btn-group">
+                    <button class="btn-comprar" onclick="comprar('Ebook Python', 3000)"><i class="fas fa-bolt"></i> Comprar</button>
+                    <button class="btn-carrinho" onclick="adicionarAoCarrinho('Ebook Python', 3000)"><i class="fas fa-cart-plus"></i> Carrinho</button>
+                    <a href="https://wa.me/244900000000?text=Olá! Quero comprar o Ebook Python" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://instagram.com/seuperfil" target="_blank" class="btn-instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="produto-social">
+                    <button onclick="curtir(this)"><i class="far fa-thumbs-up"></i> Curtir <span class="contador">8</span></button>
+                    <button onclick="comentar(this)"><i class="far fa-comment"></i> Comentar <span class="contador">3</span></button>
+                    <button onclick="compartilhar('Ebook Python', 'Kz 3.000')"><i class="fas fa-share-alt"></i> Partilhar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produto 3 -->
+        <div class="produto-card" data-categoria="acessorio" data-nome="relógio digital">
+            <div class="produto-img">
+                <img src="https://via.placeholder.com/400x220/555/fff?text=REL%C3%93GIO" alt="Relógio">
+                <span class="produto-badge">⌚ Oferta</span>
+                <div class="produto-actions-top">
+                    <button onclick="favoritar(this)"><i class="far fa-heart"></i></button>
+                    <button onclick="compartilhar('Relógio Digital', 'Kz 4.500')"><i class="fas fa-share-alt"></i></button>
+                </div>
+            </div>
+            <div class="produto-info">
+                <h3>Relógio Digital Esportivo</h3>
+                <p class="descricao">Impermeável, com cronômetro e luz</p>
+                <div class="produto-rating">
+                    ★★★☆☆ <span>(9 avaliações)</span>
+                </div>
+                <div class="preco">
+                    Kz 4.500
+                    <span class="preco-antigo">Kz 6.000</span>
+                </div>
+                <div class="btn-group">
+                    <button class="btn-comprar" onclick="comprar('Relógio Digital', 4500)"><i class="fas fa-bolt"></i> Comprar</button>
+                    <button class="btn-carrinho" onclick="adicionarAoCarrinho('Relógio Digital', 4500)"><i class="fas fa-cart-plus"></i> Carrinho</button>
+                    <a href="https://wa.me/244900000000?text=Olá! Quero comprar o Relógio Digital" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://instagram.com/seuperfil" target="_blank" class="btn-instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="produto-social">
+                    <button onclick="curtir(this)"><i class="far fa-thumbs-up"></i> Curtir <span class="contador">6</span></button>
+                    <button onclick="comentar(this)"><i class="far fa-comment"></i> Comentar <span class="contador">2</span></button>
+                    <button onclick="compartilhar('Relógio Digital', 'Kz 4.500')"><i class="fas fa-share-alt"></i> Partilhar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SEÇÃO DE DOWNLOADS ===== -->
+    <div class="download-section">
+        <h2><i class="fas fa-download"></i> Biblioteca Digital - Baixe Grátis</h2>
+        <div class="download-grid">
+            <div class="download-item">
+                <i class="fas fa-file-pdf"></i>
+                <h4>Guia de Programação</h4>
+                <p>PDF • 2.5 MB</p>
+                <button class="btn-download" onclick="baixarArquivo('Guia Programação', 'PDF')"><i class="fas fa-download"></i> Baixar</button>
+            </div>
+            <div class="download-item">
+                <i class="fas fa-file-alt"></i>
+                <h4>Manual de Negócios</h4>
+                <p>DOC • 1.8 MB</p>
+                <button class="btn-download" onclick="baixarArquivo('Manual Negócios', 'DOC')"><i class="fas fa-download"></i> Baixar</button>
+            </div>
+            <div class="download-item">
+                <i class="fas fa-file-image"></i>
+                <h4>Wallpapers HD</h4>
+                <p>ZIP • 15 MB</p>
+                <button class="btn-download" onclick="baixarArquivo('Wallpapers HD', 'ZIP')"><i class="fas fa-download"></i> Baixar</button>
+            </div>
+            <div class="download-item">
+                <i class="fas fa-file-audio"></i>
+                <h4>Podcast Motivacional</h4>
+                <p>MP3 • 8 MB</p>
+                <button class="btn-download" onclick="baixarArquivo('Podcast Motivacional', 'MP3')"><i class="fas fa-download"></i> Baixar</button>
+            </div>
+            <div class="download-item">
+                <i class="fas fa-file-video"></i>
+                <h4>Curso em Vídeo</h4>
+                <p>MP4 • 120 MB</p>
+                <button class="btn-download" onclick="baixarArquivo('Curso em Vídeo', 'MP4')"><i class="fas fa-download"></i> Baixar</button>
+            </div>
+            <div class="download-item">
+                <i class="fas fa-file-archive"></i>
+                <h4>Template HTML</h4>
+                <p>ZIP • 3 MB</p>
+                <button class="btn-download" onclick="baixarArquivo('Template HTML', 'ZIP')"><i class="fas fa-download"></i> Baixar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4><i class="fas fa-store"></i> SJCLEMENTE</h4>
+                <p style="color: var(--gray); font-size: 0.9rem;">Produtos diversos para você!<br>Angola 🇦🇴</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Links Úteis</h4>
+                <ul>
+                    <li><a href="#" onclick="abrirModal('ajuda')">Ajuda</a></li>
+                    <li><a href="#" onclick="abrirModal('politica')">Política de Privacidade</a></li>
+                    <li><a href="#" onclick="abrirModal('termos')">Termos de Uso</a></li>
+                    <li><a href="#" onclick="abrirModal('pagamentos')">Métodos de Pagamento</a></li>
+                    <li><a href="#" onclick="abrirModal('saque')">Meu Saque</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="https://wa.me/244900000000" target="_blank"><i class="fab fa-whatsapp" style="color: var(--whatsapp);"></i> WhatsApp</a></li>
+                    <li><a href="https://instagram.com/seuperfil" target="_blank"><i class="fab fa-instagram" style="color: var(--instagram);"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> Email</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i> +244 900 000 000</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Formas de Pagamento</h4>
+                <ul>
+                    <li><i class="fas fa-credit-card"></i> Cartão de Crédito</li>
+                    <li><i class="fas fa-mobile-alt"></i> Emola / M-Pesa</li>
+                    <li><i class="fas fa-university"></i> Transferência Bancária</li>
+                    <li><i class="fas fa-hand-holding-usd"></i> Pagamento na Entrega</li>
+                    <li><i class="fas fa-bitcoin"></i> Criptomoedas</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SJCLEMENTE ONLINE - Todos os direitos reservados</p>
+            <p style="font-size: 0.75rem; color: #aaa;">Feito com <i class="fas fa-heart" style="color: var(--primary);"></i> em Angola</p>
+        </div>
+    </footer>
+
 </div>
 
-  </div>  <footer>
-    <p>Redes sociais:</p>
-    <div class="socials">
-      <a href="https://wa.me/244930223136" target="_blank">WhatsApp</a>
-      <a href="https://t.me/+244930223136" target="_blank">Telegram</a>
-      <a href="https://linkedin.com/in/sergiojclemente" target="_blank">LinkedIn</a>
-      <a href="https://instagram.com/sergioj.clemente" target="_blank">Instagram</a>
-      <a href="https://www.youtube.com/@sergioJ.clemente1" target="_blank">YouTube</a>
-      <a href="https://x.com/SergioJ.Clemente" target="_blank">X</a>
-      <a href="https://tiktok.com/@sergiojclemente1" target="_blank">TikTok</a>
-      <a href="https://facebook.com/Sergio J. Clemente" target="_blank">Facebook</a>
+<!-- ===== MODAL ===== -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="fecharModal()">&times;</button>
+        <div id="modalBody">
+            <!-- Conteúdo dinâmico -->
+        </div>
     </div>
-  </footer>
-</body>
-                 </html>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast"></div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+    // ===== VARIÁVEIS GLOBAIS =====
+    let carrinho = [];
+    let favoritos = [];
+    let contadorCurtidas = {};
+
+    // ===== BUSCAR PRODUTOS =====
+    function buscarProdutos() {
+        const input = document.getElementById('searchInput');
+        const filtro = input.value.toLowerCase().trim();
+        const cards = document.querySelectorAll('.produto-card');
+
+        cards.forEach(card => {
+            const nome = card.getAttribute('data-nome').toLowerCase();
+            card.style.display = nome.includes(filtro) || filtro === '' ? 'block' : 'none';
+        });
+    }
+
+    // ===== FILTRAR POR CATEGORIA =====
+    function filtrar(categoria) {
+        const cards = document.querySelectorAll('.produto-card');
+        document.querySelectorAll('.filters button').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        cards.forEach(card => {
+            if (categoria === 'todos' || card.getAttribute('data-categoria') === categoria) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // ===== CARRINHO =====
+    function adicionarAoCarrinho(nome, preco) {
+        const item = carrinho.find(p => p.nome === nome);
+        if (item) {
+            item.quantidade++;
+        } else {
+            carrinho.push({ nome, preco, quantidade: 1 });
+        }
+        atualizarCarrinho();
+        mostrarToast(`${nome} adicionado ao carrinho! 🛒`);
+    }
+
+    function removerDoCarrinho(nome) {
+        carrinho = carrinho.filter(p => p.nome !== nome);
+        atualizarCarrinho();
+        mostrarToast('Item removido do carrinho');
+    }
+
+    function atualizarCarrinho() {
+        document.getElementById('cartCount').textContent = carrinho.reduce((sum, p) => sum + p.quantidade, 0);
+    }
+
+    function verCarrinho() {
+        if (carrinho.length === 0) {
+            return '<p style="text-align:center;padding:30px;"><i class="fas fa-shopping-cart" style="font-size:3rem;color:#ddd;display:block;"></i>Seu carrinho está vazio</p>';
+        }
+        let html = `<h2><i class="fas
